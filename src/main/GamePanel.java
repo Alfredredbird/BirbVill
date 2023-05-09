@@ -143,7 +143,7 @@ public class GamePanel extends JPanel implements Runnable{
         if(gameState == playState){
             //player
             player.update();
-//            music.loop();
+           // music.play();
             //npc
             for (int i = 0; i < npc.length; i++) {
                 if(npc[i] != null){
@@ -168,6 +168,7 @@ public class GamePanel extends JPanel implements Runnable{
         long drawStart = 0;
         if (keyH.DrawTimeMenu == true) {
             drawStart = System.nanoTime();
+
         }
 
         //title screen
@@ -191,7 +192,10 @@ public class GamePanel extends JPanel implements Runnable{
                 }
             }
             //player
-            player.draw(g2);
+             player.draw(g2);
+
+
+
 
             //ui
             ui.draw(g2);
@@ -207,6 +211,15 @@ public class GamePanel extends JPanel implements Runnable{
             g2.setColor(Color.white);
             g2.drawString("Draw Time: " + passed, 10, 80);
             System.out.println("Draw Time: " + passed);
+            g2.drawString("X:" + player.worldX, 900, 140);
+            g2.drawString("Y:" + player.worldY, 900, 70);
+
+            //draws the amount of keys the player has
+            if(player.hasKey > 0) {
+                g2.drawString("Keys:" + player.hasKey, 900, 180);
+            }
+
+            g2.drawString("Direction:" + player.direction, 750, 240);
         }
         g2.dispose();
     }

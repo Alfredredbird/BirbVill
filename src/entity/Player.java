@@ -15,10 +15,11 @@ public class Player extends Entity{
 
     KeyHandler keyH;
 
-    
+
 
     public final int screenX;
     public final int screenY;
+
     public int hasKey = 0;
     public Player(GamePanel gp, KeyHandler keyH){
         super(gp);
@@ -56,6 +57,7 @@ public class Player extends Entity{
     public void getPlayerImage(){
 
 
+
             up1 = setup("/player/walk_1");
             up2 = setup("/player/walk_2");
             down1 = setup("/player/down_1");
@@ -64,9 +66,6 @@ public class Player extends Entity{
             right2 = setup("/player/right_2");
             left1 = setup("/player/left_1");
             left2 = setup("/player/left_2");
-
-
-
 
 
 

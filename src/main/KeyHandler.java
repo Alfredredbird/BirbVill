@@ -9,7 +9,7 @@ public class KeyHandler implements KeyListener {
     public boolean upPressed, downPressed, leftPressed, rightPressed, enterPressed;
     //debug
     boolean DrawTimeMenu = false;
-    public int charaterCardnum = 0;
+
     public KeyHandler(GamePanel gp){
         this.gp = gp;
     }
@@ -83,7 +83,8 @@ public class KeyHandler implements KeyListener {
                         //for later
                         gp.gameState = gp.playState;
                         gp.playMusic(0);
-                        charaterCardnum = 1;
+
+
                         System.out.println("Big Birb has been chosen");
 
                     }
