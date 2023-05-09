@@ -26,6 +26,12 @@ public class Entity {
     public int actionLockCounter = 0;
     String dialouges[] = new String[20];
     int diagloeIndex = 0;
+
+    //chracter health stats
+    public int maxlife;
+    public int life;
+
+
     public Entity(GamePanel gp){
         this.gp = gp;
     }

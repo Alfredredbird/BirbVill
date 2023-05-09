@@ -1,6 +1,8 @@
 package main;
 
 import objects.Object_key;
+import objects.SuperObject;
+import objects.hearts;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -16,7 +18,7 @@ public class UI {
     int messageCounter = 0;
     public String currentDialog = "";
     public int commandNum = 0;
-
+    BufferedImage heart_0,heart_1, heart_2;
     public int titleScreenState = 0; //0 = screen 1 etc
     public UI(GamePanel gp){
         this.gp = gp;
@@ -24,6 +26,12 @@ public class UI {
         arial_40 = new Font("Arial", Font.PLAIN, 40);
 //        Object_key key = new Object_key(gp);
 //        keyImage = key.image;
+
+        //creats the hearts
+        SuperObject heart = new hearts(gp);
+        heart_0 = heart.image;
+        heart_1 = heart.image2;
+        heart_2 = heart.image3;
     }
 
     public void showMessage(String text){
@@ -63,13 +71,48 @@ public class UI {
 
         if(gp.gameState == gp.playState){
             //starts play state
+            drawPlayerHearts();
         }
         if(gp.gameState == gp.pauseState){
+            drawPlayerHearts();
             drawPauseScrn();
         }
         if(gp.gameState == gp.dialogState){
+            drawPlayerHearts();
             drawDialogScreen();
         }
+    }
+    public void drawPlayerHearts(){
+
+
+        int x = gp.tileSize/2;
+        int y = gp.tileSize/2;
+        int i = 0;
+
+
+        //draws max hearts
+        while (i < gp.player.maxlife/2 ){
+            g2.drawImage(heart_2, x,y, null);
+            i++;
+            x+= gp.tileSize;
+        }
+
+        //resets values
+         x = gp.tileSize/2;
+         y = gp.tileSize/2;
+         i = 0;
+
+         //draws the life.
+        while (i < gp.player.life){
+            g2.drawImage(heart_1,x ,y, null);
+            i++;
+            if(i < gp.player.life){
+                g2.drawImage(heart_0, x,y, null);
+            }
+            i++;
+            x += gp.tileSize;
+        }
+
     }
     public void drawTitleScreen(){
 
@@ -183,7 +226,13 @@ public class UI {
 
         x += gp.tileSize;
         y += gp.tileSize;
-        g2.drawString(currentDialog,x ,y);
+
+        for (String line : currentDialog.split("\n")){
+            g2.drawString(line,x ,y);
+            y+= 40;
+        }
+
+
 
     }
     public void drawSubWindow(int x, int y, int width, int height){

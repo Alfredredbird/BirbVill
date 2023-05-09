@@ -36,6 +36,7 @@ public class Npc_birb extends Entity{
         dialouges[1] = "Get Keys To Open Doors";
         dialouges[2] = "The Devs Are Lazy *Chirp*";
         dialouges[3] = "*peep*";
+        dialouges[4] = "Did You Know That You \nHave " + gp.player.life + " Hearts Left.";
 
     }
     public void setAction() {
