@@ -8,7 +8,7 @@ Discord server link: https://discord.gg/xrdjxyuSQt
 Here is the road map if you want to view it. https://github.com/users/Alfredredbird/projects/3/views/1
 
 
-<=============================================================================================>
+<================================================================================>
 
 Ingame art:
 Title screen
