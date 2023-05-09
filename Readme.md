@@ -4,6 +4,8 @@ A simple 2d game that im currently working on. It will be a live action RPG and 
 If you would like to help, download a copy and you can submit your changes :D
 This readme.md file realy needs some work XD
 
+Progress is low at the moment so any help is apreicated.
+
 Discord server link: https://discord.gg/xrdjxyuSQt
 Here is the road map if you want to view it. https://github.com/users/Alfredredbird/projects/3/views/1
 
