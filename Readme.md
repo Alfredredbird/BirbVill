@@ -8,6 +8,8 @@ Progress is low at the moment so any help is apreicated.
 
 # contact
 Discord server link: https://discord.gg/xrdjxyuSQt
+Twitter: https://twitter.com/@Alfredredbird1
+
 Here is the road map if you want to view it. https://github.com/users/Alfredredbird/projects/3/views/1
 
 
