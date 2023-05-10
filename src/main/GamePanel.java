@@ -51,6 +51,7 @@ public class GamePanel extends JPanel implements Runnable{
    public CollisionChecker cChecker = new CollisionChecker(this);
    public AssetSetter aSetter = new AssetSetter(this);
    public UI ui = new UI(this);
+   public EventHandler eHandler = new EventHandler(this);
     Thread gameThread;
 
    public Player player = new Player(this, keyH);
@@ -214,12 +215,23 @@ public class GamePanel extends JPanel implements Runnable{
             g2.drawString("X:" + player.worldX, 900, 140);
             g2.drawString("Y:" + player.worldY, 900, 70);
 
+            g2.drawString("X Tile:" + player.worldX/48, 800, 180);
+            g2.drawString("Y Tile:" + player.worldY/48, 800, 220);
+
+            g2.drawString("Health:" + player.life, 850, 30);
+           if(gameState == 3){
+               g2.drawString("Talking To Npc: True" , 10, 140);
+           }
+            if(gameState == 1){
+                g2.drawString("Talking To Npc: False", 10, 140);
+            }
+
             //draws the amount of keys the player has
             if(player.hasKey > 0) {
                 g2.drawString("Keys:" + player.hasKey, 900, 180);
             }
 
-            g2.drawString("Direction:" + player.direction, 750, 240);
+            g2.drawString("Direction:" + player.direction, 750, 260);
         }
         g2.dispose();
     }

@@ -50,12 +50,15 @@ public class KeyHandler implements KeyListener {
                     }
                     if(gp.ui.commandNum == 2){
                         //multiplayer
+                        gp.ui.titleScreenState = 2;
+
                     }if(gp.ui.commandNum == 3){
                         System.exit(69);
 
                     }
                 }
             }
+            //chose birb screen
             else if(gp.ui.titleScreenState == 1){
                 if (code == KeyEvent.VK_UP){
                     gp.ui.commandNum--;
@@ -95,9 +98,37 @@ public class KeyHandler implements KeyListener {
                         System.out.println("Lil Birb has been chosen");
                     }
                     if(gp.ui.commandNum == 3) {
-                        //for later
+                        //exit
+
                        gp.ui.titleScreenState = 0;
                     }
+                }
+
+                //stops from using multiplayer
+            }else if(gp.ui.titleScreenState == 2){
+                if (code == KeyEvent.VK_UP){
+
+                    if(gp.ui.commandNum <0 ){
+                        gp.ui.commandNum = 0;
+                    }
+                }
+                if (code == KeyEvent.VK_DOWN){
+
+                    if(gp.ui.commandNum >0 ){
+                        gp.ui.commandNum = 0;
+                    }
+                }
+
+                if (code == KeyEvent.VK_ENTER){
+                    if(gp.ui.commandNum == 0){
+
+
+                        gp.ui.titleScreenState = 0;
+
+                        System.out.println("Birb has been chosen");
+                    }
+
+
                 }
             }
 

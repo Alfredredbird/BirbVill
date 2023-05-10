@@ -63,7 +63,7 @@ public class TileManager {
 
             setUp(2, "swamp_grass", false);
             setUp(1, "grass", false);
-            setUp(0, "tree", true);
+            setUp(0, "tree", false);
             setUp(3, "house_tiles", false);
             setUp(4, "water", true);
             setUp(5, "dirt", false);

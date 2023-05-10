@@ -211,6 +211,36 @@ public class UI {
                 g2.drawString(">", x- gp.tileSize, y);
             }
         }
+        else if(titleScreenState == 2){
+
+            g2.setColor(Color.white);
+            g2.setFont(g2.getFont().deriveFont(32F));
+            String  text = "Press Up Arrow To Go Back";
+            int  x = getXforCenter(text);
+            int y = gp.tileSize*4;
+            g2.drawString(text,x ,y);
+
+            g2.setColor(Color.white);
+            g2.setFont(g2.getFont().deriveFont(42F));
+             text = "Multiplayer Is Not Available Yet :(";
+             x = getXforCenter(text);
+             y = gp.tileSize*3;
+            g2.drawString(text,x ,y);
+
+
+
+
+            text = "Back";
+            x = getXforCenter(text);
+            y += gp.tileSize*3;
+            g2.drawString(text,x ,y);
+            if(commandNum == 0){
+
+                g2.drawString(">", x- gp.tileSize, y);
+            }
+
+
+        }
 
     }
     public void drawDialogScreen(){
