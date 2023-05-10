@@ -18,7 +18,7 @@ public class TileManager {
     public int mapTileNum[][];
     public TileManager(GamePanel gp){
         this.gp = gp;
-        tile = new Tile[10];
+        tile = new Tile[50];
         mapTileNum = new int[gp.maxWorldCol][gp.maxWorldRow];
 
         getTileImage();
@@ -63,12 +63,18 @@ public class TileManager {
 
             setUp(2, "swamp_grass", false);
             setUp(1, "grass", false);
-            setUp(0, "tree", false);
+            setUp(0, "tree", true);
             setUp(3, "house_tiles", false);
             setUp(4, "water", true);
             setUp(5, "dirt", false);
             setUp(6, "stone", true);
-
+            setUp(7, "dirt_path_right", false);
+            setUp(8, "dirt_path_left", false);
+            setUp(9, "dirt_path_corner_3", false);
+            setUp(10, "old_dirt_path_left", false);
+            setUp(11, "dirt_path_turn_right2", false);
+            setUp(12, "dirt_path_turn_left2", false);
+            setUp(13, "dirt_path_down", false);
 
 
     }

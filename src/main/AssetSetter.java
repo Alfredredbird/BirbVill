@@ -1,8 +1,10 @@
 package main;
 
 import entity.Npc_birb;
+import entity.tut_birb;
 import objects.Object_door;
 import objects.Object_key;
+import objects.sign;
 
 public class AssetSetter {
 
@@ -29,6 +31,11 @@ public class AssetSetter {
         gp.obj[3].worldX = 8 * gp.tileSize;
         gp.obj[3].worldY = 12 * gp.tileSize;
 
+        gp.obj[4] = new sign(gp);
+        gp.obj[4].worldX = 10 * gp.tileSize;
+        gp.obj[4].worldY = 15 * gp.tileSize;
+
+
 
     }
     public void setNPC(){
@@ -36,5 +43,9 @@ public class AssetSetter {
         gp.npc[0] = new Npc_birb(gp);
         gp.npc[0].worldX = gp.tileSize*9;
         gp.npc[0].worldY = gp.tileSize*9;
+
+        gp.npc[1] = new tut_birb(gp);
+        gp.npc[1].worldX = gp.tileSize*13;
+        gp.npc[1].worldY = gp.tileSize*19;
     }
 }
