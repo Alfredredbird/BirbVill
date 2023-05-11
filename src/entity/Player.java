@@ -60,11 +60,11 @@ public class Player extends Entity{
 
 
             up1 = setup("/player/walk_1");
-            up2 = setup("/player/walk_1");
+            up2 = setup("/player/walk_2");
             down1 = setup("/player/down_1");
-            down2 = setup("/player/down_1");
+            down2 = setup("/player/down_2");
             right1 = setup("/player/right_1");
-            right2 = setup("/player/right_0");
+            right2 = setup("/player/right_2");
             left1 = setup("/player/left_1");
             left2 = setup("/player/left_2");
 
