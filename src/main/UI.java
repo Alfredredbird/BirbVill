@@ -1,7 +1,6 @@
 package main;
 
-import objects.Object_key;
-import objects.SuperObject;
+import entity.Entity;
 import objects.hearts;
 
 import java.awt.*;
@@ -28,7 +27,7 @@ public class UI {
 //        keyImage = key.image;
 
         //creats the hearts
-        SuperObject heart = new hearts(gp);
+        Entity heart = new hearts(gp);
         heart_0 = heart.image;
         heart_1 = heart.image2;
         heart_2 = heart.image3;

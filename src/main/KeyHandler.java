@@ -91,7 +91,7 @@ public class KeyHandler implements KeyListener {
 
 
                         System.out.println("Easy Has Been Chosen");
-                        gp.player.life = 10;
+                        gp.player.life = 5;
 
                     }
                     if(gp.ui.commandNum == 2) {

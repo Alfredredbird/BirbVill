@@ -102,6 +102,11 @@ public class Player extends Entity{
             int npcIndex = gp.cChecker.checkEntity(this, gp.npc);
             interactNpc(npcIndex);
 
+            //checks for monster collision
+            int monsterIndex = gp.cChecker.checkEntity(this, gp.monster);
+
+            contactWMonster(monsterIndex);
+
             //checks for events
             gp.eHandler.checkEvent();
             //if its false player can move
@@ -134,7 +139,16 @@ public class Player extends Entity{
                 }
                 spriteCounter = 0;
             }
+
         }
+        if(invc == true){
+            invcCounter++;
+            if (invcCounter > 60){
+                invc = false;
+                invcCounter = 0;
+            }
+        }
+
     }
     public void interactNpc(int i){
         if (i != 999){
@@ -173,6 +187,18 @@ public class Player extends Entity{
             }
 
         }
+    }
+    public void contactWMonster(int i){
+
+        if(i != 999){
+
+            if(invc == false){
+                life -= 1;
+                invc = true;
+            }
+
+        }
+
     }
     public void draw(Graphics2D g2){
 
@@ -214,10 +240,21 @@ public class Player extends Entity{
                 }
                 break;
         }
+
+        if(invc == true){
+            g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.3f));
+        }
         g2.drawImage(image,screenX ,screenY, 96, 96, null);
+
+        //resets alpha
+        g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1f));
+
 //                g2.setColor(Color.WHITE);
 //
 //        g2.fillRect(x,y,gp.tileSize, gp.tileSize);
+
+
+
     }
 
 

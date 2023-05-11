@@ -1,7 +1,9 @@
 package main;
 
+import entity.Entity;
 import entity.Npc_birb;
 import entity.tut_birb;
+import monster.Blue_slime;
 import objects.Object_door;
 import objects.Object_key;
 import objects.sign;
@@ -47,5 +49,15 @@ public class AssetSetter {
         gp.npc[1] = new tut_birb(gp);
         gp.npc[1].worldX = gp.tileSize*13;
         gp.npc[1].worldY = gp.tileSize*19;
+    }
+
+    public void setMonster(){
+        gp.monster[0] = new Blue_slime(gp);
+        gp.monster[0].worldX = gp.tileSize*21;
+        gp.monster[0].worldY = gp.tileSize*21;
+
+        gp.monster[1] = new Blue_slime(gp);
+        gp.monster[1].worldX = gp.tileSize*10;
+        gp.monster[1].worldY = gp.tileSize*10;
     }
 }
