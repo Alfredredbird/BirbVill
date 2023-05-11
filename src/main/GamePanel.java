@@ -23,6 +23,7 @@ public class GamePanel extends JPanel implements Runnable{
     //org size was 3 so if something is wrong change back :D
     final int scale = 4;
 
+
     public  int tileSize = orts * scale; // 48
    public  int maxScreenCol = 16;
      public  int maxScreenRow = 12;
@@ -211,12 +212,13 @@ public class GamePanel extends JPanel implements Runnable{
             long passed = drawEnd - drawStart;
             g2.setColor(Color.white);
             g2.drawString("Draw Time: " + passed, 10, 80);
-            System.out.println("Draw Time: " + passed);
+
             g2.drawString("X:" + player.worldX, 900, 140);
             g2.drawString("Y:" + player.worldY, 900, 70);
 
             g2.drawString("X Tile:" + player.worldX/48, 800, 180);
             g2.drawString("Y Tile:" + player.worldY/48, 800, 220);
+
 
             g2.drawString("Health:" + player.life, 850, 30);
            if(gameState == 3){
@@ -228,7 +230,7 @@ public class GamePanel extends JPanel implements Runnable{
 
             //draws the amount of keys the player has
             if(player.hasKey > 0) {
-                g2.drawString("Keys:" + player.hasKey, 900, 180);
+                g2.drawString("Keys:" + player.hasKey, 900, 280);
             }
 
             g2.drawString("Direction:" + player.direction, 750, 260);
