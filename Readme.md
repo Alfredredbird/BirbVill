@@ -43,7 +43,8 @@ Health System
 
 
 
-<img width="302" alt="image" src="https://github.com/Alfredredbird/BirbVill/assets/105014217/c912e7d1-a8ea-4e4f-b3c0-3848d1d868f5">
+<img width="311" alt="image" src="https://github.com/Alfredredbird/BirbVill/assets/105014217/aa19a513-bd19-46f5-a595-004aa09042b4">
+
 
 
 Current things to add/fix:
