@@ -30,31 +30,29 @@ public class KeyHandler implements KeyListener {
                 if (code == KeyEvent.VK_UP){
                     gp.ui.commandNum--;
                     if(gp.ui.commandNum <0 ){
-                        gp.ui.commandNum = 3;
+                        gp.ui.commandNum = 2;
                     }
                 }
                 if (code == KeyEvent.VK_DOWN){
                     gp.ui.commandNum++;
-                    if(gp.ui.commandNum >3 ){
+                    if(gp.ui.commandNum >2 ){
                         gp.ui.commandNum = 0;
                     }
                 }
 
-                if (code == KeyEvent.VK_ENTER){
-                    if(gp.ui.commandNum == 0){
+                if (code == KeyEvent.VK_ENTER) {
+                    if (gp.ui.commandNum == 0) {
                         gp.ui.titleScreenState = 1;
 
                     }
-                    if(gp.ui.commandNum == 1){
+                    if (gp.ui.commandNum == 1) {
                         //for later
-
-                    }
-                    if(gp.ui.commandNum == 2){
-                        //multiplayer
                         gp.ui.titleScreenState = 2;
-
-                    }if(gp.ui.commandNum == 3){
+                    }
+                    if (gp.ui.commandNum == 2) {
+                        //exit
                         System.exit(69);
+
 
                     }
                 }

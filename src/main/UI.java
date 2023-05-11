@@ -2,6 +2,7 @@ package main;
 
 import entity.Entity;
 import objects.hearts;
+import objects.ui;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -18,6 +19,7 @@ public class UI {
     public String currentDialog = "";
     public int commandNum = 0;
     BufferedImage heart_0,heart_1, heart_2;
+    BufferedImage playB;
     public int titleScreenState = 0; //0 = screen 1 etc
     public UI(GamePanel gp){
         this.gp = gp;
@@ -31,6 +33,11 @@ public class UI {
         heart_0 = heart.image;
         heart_1 = heart.image2;
         heart_2 = heart.image3;
+
+        //ui items
+        Entity UIG = new ui(gp);
+        playB = UIG.image;
+
     }
 
     public void showMessage(String text){
@@ -129,44 +136,43 @@ public class UI {
             g2.setColor(Color.white);
             g2.drawString(text, x ,y);
 
-            x = gp.screenWdith/2 - (gp.tileSize*2)/2;
-            y += gp.tileSize*2;
-            g2.drawImage(gp.player.left1, x,y, gp.tileSize*2, gp.tileSize*2, null);
+//            x = gp.screenWdith/2 - (gp.tileSize*2)/2;
+//            y += gp.tileSize*1.3;
+//            g2.drawImage(gp.player.left1, x,y, gp.tileSize*2, gp.tileSize*2, null);
 
             //menus
             g2.setFont(g2.getFont().deriveFont(Font.BOLD, 48F));
 
             text = "New Game";
-            x = getXforCenter(text);
+            x += gp.tileSize*1.2;
             y += gp.tileSize*2;
-            g2.drawString(text, x, y);
+//            g2.drawString(text, x, y);
+            g2.drawImage(playB, x,y, 160, 160, null);
             if(commandNum == 0){
-                g2.drawString(">", x-gp.tileSize, y);
+                g2.drawString(">", x-gp.tileSize, 400);
             }
 
             text = "Load Game";
-            x = getXforCenter(text);
-            y += gp.tileSize;
-            g2.drawString(text, x, y);
+            x = getXforCenter(text)+ 39;
+            y += gp.tileSize*1.5;
+//            g2.drawString(text, x, y);
+            g2.drawImage(playB, x,y, 160, 160, null);
             if(commandNum == 1){
-                g2.drawString(">", x-gp.tileSize, y);
-            }
-
-            text = "Multiplayer";
-            x = getXforCenter(text);
-            y += gp.tileSize;
-            g2.drawString(text, x, y);
-            if(commandNum == 2){
-                g2.drawString(">", x-gp.tileSize, y);
+                g2.drawString(">", x-gp.tileSize, 500);
             }
 
             text = "Quit";
-            x = getXforCenter(text);
-            y += gp.tileSize;
-            g2.drawString(text, x, y);
-            if(commandNum == 3){
-                g2.drawString(">", x-gp.tileSize, y);
+//            x = getXforCenter(text);
+            x = getXforCenter(text) - 43;
+            y += gp.tileSize*1.5;
+//            g2.drawString(text, x, y);
+            g2.drawImage(playB, x,y, 160, 160, null);
+            if(commandNum == 2){
+                g2.drawString(">", x-gp.tileSize, 600);
             }
+
+
+
         }
         else if(titleScreenState == 1){
 
