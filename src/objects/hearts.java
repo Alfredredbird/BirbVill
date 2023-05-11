@@ -8,7 +8,7 @@ import java.io.IOException;
 public class hearts extends SuperObject{
     GamePanel gp;
     public hearts(GamePanel gp){
-        name = "Key";
+        name = "Hearts";
         try {
             image = ImageIO.read(getClass().getResourceAsStream("/ui/heart_0.png"));
             image2 = ImageIO.read(getClass().getResourceAsStream("/ui/heart_1.png"));
