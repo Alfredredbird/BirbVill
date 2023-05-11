@@ -10,6 +10,7 @@ public class KeyHandler implements KeyListener {
     //debug
     boolean DrawTimeMenu = false;
 
+
     public KeyHandler(GamePanel gp){
         this.gp = gp;
     }
@@ -80,7 +81,8 @@ public class KeyHandler implements KeyListener {
                        gp.gameState = gp.playState;
                         gp.playMusic(0);
 
-                        System.out.println("Birb has been chosen");
+                        System.out.println("Normal has been chosen");
+
                     }
                     if(gp.ui.commandNum == 1){
                         //for later
@@ -88,14 +90,18 @@ public class KeyHandler implements KeyListener {
                         gp.playMusic(0);
 
 
-                        System.out.println("Big Birb has been chosen");
+                        System.out.println("Easy Has Been Chosen");
+                        gp.player.life = 10;
 
                     }
                     if(gp.ui.commandNum == 2) {
                         //for later
+                        gp.playMusic(0);
+
+                        System.out.println("Hardcore has been chosen");
+                        gp.player.life = 1;
                         gp.gameState = gp.playState;
 
-                        System.out.println("Lil Birb has been chosen");
                     }
                     if(gp.ui.commandNum == 3) {
                         //exit
