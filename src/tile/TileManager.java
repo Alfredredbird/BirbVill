@@ -75,6 +75,8 @@ public class TileManager {
             setUp(11, "dirt_path_turn_right2", false);
             setUp(12, "dirt_path_turn_left2", false);
             setUp(13, "dirt_path_down", false);
+            setUp(14, "river5", true);
+            setUp(15, "river6", true);
 
 
     }

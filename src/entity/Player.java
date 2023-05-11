@@ -2,13 +2,10 @@ package entity;
 
 import main.GamePanel;
 import main.KeyHandler;
-import main.UtilityTool;
 
-import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.awt.image.ImagingOpException;
-import java.io.IOException;
+
 
 public class Player extends Entity{
 
@@ -63,11 +60,11 @@ public class Player extends Entity{
 
 
             up1 = setup("/player/walk_1");
-            up2 = setup("/player/walk_2");
+            up2 = setup("/player/walk_1");
             down1 = setup("/player/down_1");
-            down2 = setup("/player/down_2");
+            down2 = setup("/player/down_1");
             right1 = setup("/player/right_1");
-            right2 = setup("/player/right_2");
+            right2 = setup("/player/right_0");
             left1 = setup("/player/left_1");
             left2 = setup("/player/left_2");
 
@@ -109,6 +106,8 @@ public class Player extends Entity{
 
             //checks for events
             gp.eHandler.checkEvent();
+
+            gp.keyH.enterPressed = false;
             //if its false player can move
             if(collisionOn == false){
                 switch (direction){
@@ -158,7 +157,6 @@ public class Player extends Entity{
             }
 
         }
-        gp.keyH.enterPressed = false;
     }
 
     public void pickUpObject(int i){

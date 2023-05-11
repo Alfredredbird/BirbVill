@@ -30,11 +30,11 @@ public class AssetSetter {
         gp.obj[2].worldY = 2 * gp.tileSize;
 
         gp.obj[3] = new Object_door(gp);
-        gp.obj[3].worldX = 8 * gp.tileSize;
+        gp.obj[3].worldX = 9 * gp.tileSize;
         gp.obj[3].worldY = 12 * gp.tileSize;
 
         gp.obj[4] = new sign(gp);
-        gp.obj[4].worldX = 10 * gp.tileSize;
+        gp.obj[4].worldX = 11 * gp.tileSize;
         gp.obj[4].worldY = 15 * gp.tileSize;
 
 
@@ -54,7 +54,7 @@ public class AssetSetter {
     public void setMonster(){
         gp.monster[0] = new Blue_slime(gp);
         gp.monster[0].worldX = gp.tileSize*21;
-        gp.monster[0].worldY = gp.tileSize*21;
+        gp.monster[0].worldY = gp.tileSize*20;
 
         gp.monster[1] = new Blue_slime(gp);
         gp.monster[1].worldX = gp.tileSize*10;

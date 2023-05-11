@@ -1,6 +1,7 @@
 package main;
 
 import java.awt.*;
+import java.util.Random;
 
 //This code below is broken and the detection system wont work. if you can fix it go ahead :D
 public class EventHandler {
@@ -28,10 +29,13 @@ public class EventHandler {
 
     public void checkEvent(){
 
-        if(hit(10,10, "down") == true){
+        if(hit(14,10, "right") == true){
             //does event stuff
             System.out.println("SUS");
             pit(gp.dialogState);
+        }
+        if(hit(6, 18, "left") == true){
+            drinkWater(gp.dialogState);
         }
 
     }
@@ -70,6 +74,23 @@ public class EventHandler {
 
 
     }
+    public void drinkWater(int gameState){
+
+        if(gp.keyH.enterPressed == true){
+            gp.gameState = gameState;
+
+            if(gp.player.life < 10) {
+                Random random = new Random();
+
+                int i = random.nextInt(3) + 1;
+                gp.ui.currentDialog = "You Drink The Water. \n You Gained " + i + " Hearts";
+                gp.player.life += i;
+            } else if (gp.player.life >= 10){
+                gp.ui.currentDialog = "You Cant Drink The Water Right \n Now. Come Back When You \n Loose Hearts.";
+            }
+        }
+    }
+
 
 
 }
