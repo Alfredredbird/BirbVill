@@ -13,6 +13,8 @@ public class ui extends Entity {
         image3 = setup("/ui/quit_button2");
         image4 = setup("/ui/text_box");
         image5 = setup("/ui/youtube_button");
+        image6 = setup("/ui/twitter_button");
+        image7 = setup("/ui/credits_button");
 
 
     }

@@ -39,12 +39,12 @@ public class KeyHandler implements KeyListener {
                 if (code == KeyEvent.VK_UP){
                     gp.ui.commandNum--;
                     if(gp.ui.commandNum <0 ){
-                        gp.ui.commandNum = 4;
+                        gp.ui.commandNum = 5;
                     }
                 }
                 if (code == KeyEvent.VK_DOWN){
                     gp.ui.commandNum++;
-                    if(gp.ui.commandNum >4 ){
+                    if(gp.ui.commandNum >5 ){
                         gp.ui.commandNum = 0;
                     }
                 }
@@ -82,6 +82,13 @@ public class KeyHandler implements KeyListener {
                         } catch (MalformedURLException ex) {
                             throw new RuntimeException(ex);
                         }
+
+                    }
+                    if (gp.ui.commandNum == 5) {
+                        gp.ui.titleScreenState = 3;
+
+
+
 
                     }
                 }
@@ -134,6 +141,7 @@ public class KeyHandler implements KeyListener {
                         //exit
 
                        gp.ui.titleScreenState = 0;
+                        gp.ui.commandNum = 2;
                     }
                 }
 
@@ -163,7 +171,34 @@ public class KeyHandler implements KeyListener {
 
 
                 }
+            }  else if(gp.ui.titleScreenState == 3) {
+                if (code == KeyEvent.VK_UP) {
+                    gp.ui.commandNum--;
+                    if (gp.ui.commandNum < 0) {
+                        gp.ui.commandNum = 3;
+                    }
+                }
+                if (code == KeyEvent.VK_DOWN) {
+                    gp.ui.commandNum++;
+                    if (gp.ui.commandNum > 3) {
+                        gp.ui.commandNum = 0;
+                    }
+                }
+
+                if (code == KeyEvent.VK_ENTER) {
+                    if (gp.ui.commandNum == 0) {
+
+
+
+                        System.out.println("Credits ");
+                        gp.ui.titleScreenState = 0;
+
+
+                    }
+
+                }
             }
+
 
         }
         //keystrokes for play state
