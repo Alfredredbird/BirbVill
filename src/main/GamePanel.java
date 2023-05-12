@@ -144,6 +144,7 @@ public class GamePanel extends JPanel implements Runnable{
     }
     public void update(){
 
+
         if(gameState == playState){
             //player
             player.update();
@@ -169,6 +170,7 @@ public class GamePanel extends JPanel implements Runnable{
     }
     public void paintComponent(Graphics g){
 
+
         super.paintComponent(g);
 
         Graphics2D g2 = (Graphics2D)g;
@@ -179,6 +181,7 @@ public class GamePanel extends JPanel implements Runnable{
             drawStart = System.nanoTime();
 
         }
+
 
         //title screen
         if (gameState == titleState){

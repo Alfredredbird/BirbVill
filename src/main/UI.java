@@ -4,6 +4,7 @@ import entity.Entity;
 import objects.hearts;
 import objects.ui;
 
+import javax.swing.text.html.ImageView;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
@@ -146,6 +147,8 @@ public class UI {
 //            y += gp.tileSize*1.3;
 //            g2.drawImage(gp.player.left1, x,y, gp.tileSize*2, gp.tileSize*2, null);
 
+
+
             //menus
             g2.setFont(g2.getFont().deriveFont(Font.BOLD, 48F));
 
@@ -175,6 +178,15 @@ public class UI {
             g2.drawImage(quitB, x,y, 160, 160, null);
             if(commandNum == 2){
                 g2.drawString(">", x-gp.tileSize, 600);
+            }
+
+            text = "Youtube";
+            x = getXforCenter(text) - 35;
+            y += gp.tileSize*1.009;
+//            g2.drawString(text, x, y);
+            g2.drawString(text, x,636);
+            if(commandNum == 3){
+                g2.drawString(">", 150, 700);
             }
 
 

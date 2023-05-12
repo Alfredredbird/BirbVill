@@ -1,7 +1,13 @@
 package main;
 
+import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.security.PublicKey;
 
 public class KeyHandler implements KeyListener {
 
@@ -9,6 +15,9 @@ public class KeyHandler implements KeyListener {
     public boolean upPressed, downPressed, leftPressed, rightPressed, enterPressed;
     //debug
     boolean DrawTimeMenu = false;
+
+
+
 
 
     public KeyHandler(GamePanel gp){
@@ -30,12 +39,12 @@ public class KeyHandler implements KeyListener {
                 if (code == KeyEvent.VK_UP){
                     gp.ui.commandNum--;
                     if(gp.ui.commandNum <0 ){
-                        gp.ui.commandNum = 2;
+                        gp.ui.commandNum = 3;
                     }
                 }
                 if (code == KeyEvent.VK_DOWN){
                     gp.ui.commandNum++;
-                    if(gp.ui.commandNum >2 ){
+                    if(gp.ui.commandNum >3 ){
                         gp.ui.commandNum = 0;
                     }
                 }
@@ -52,6 +61,18 @@ public class KeyHandler implements KeyListener {
                     if (gp.ui.commandNum == 2) {
                         //exit
                         System.exit(69);
+
+
+                    }
+                    if (gp.ui.commandNum == 3) {
+                       //opens link
+                        try {
+                            URL sus = new URL("https://www.youtube.com/channel/UCnQ8RexasTgyh23H4xReakw");
+                            openWebdpage(sus);
+                        } catch (MalformedURLException ex) {
+                            throw new RuntimeException(ex);
+                        }
+
 
 
                     }
@@ -184,6 +205,27 @@ public class KeyHandler implements KeyListener {
                 gp.gameState = gp.playState;
             }
         }
+    }
+    public static boolean openWebpage(URI uri) {
+        Desktop desktop = Desktop.isDesktopSupported() ? Desktop.getDesktop() : null;
+        if (desktop != null && desktop.isSupported(Desktop.Action.BROWSE)) {
+            try {
+                desktop.browse(uri);
+                return true;
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return false;
+    }
+
+    public static boolean openWebdpage(URL url) {
+        try {
+            return openWebpage(url.toURI());
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 
 
