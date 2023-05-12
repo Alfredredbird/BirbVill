@@ -19,7 +19,7 @@ public class UI {
     public String currentDialog = "";
     public int commandNum = 0;
     BufferedImage heart_0,heart_1, heart_2;
-    BufferedImage playB, quitB;
+    BufferedImage playB, quitB, optionsB;
     public int titleScreenState = 0; //0 = screen 1 etc
     public UI(GamePanel gp){
         this.gp = gp;
@@ -38,6 +38,7 @@ public class UI {
         Entity UIG = new ui(gp);
         playB = UIG.image;
         quitB = UIG.image2;
+        optionsB = UIG.image3;
 
     }
 
@@ -144,20 +145,20 @@ public class UI {
             //menus
             g2.setFont(g2.getFont().deriveFont(Font.BOLD, 48F));
 
-            text = "New Game";
+            text = "Play";
             x += gp.tileSize*1.2;
-            y += gp.tileSize*2;
+            y += gp.tileSize*1.9;
 //            g2.drawString(text, x, y);
             g2.drawImage(playB, x,y, 160, 160, null);
             if(commandNum == 0){
                 g2.drawString(">", x-gp.tileSize, 400);
             }
 
-            text = "Load Game";
-            x = getXforCenter(text)+ 39;
-            y += gp.tileSize*1.5;
+            text = "Options";
+            x = getXforCenter(text) - 35;
+            y += gp.tileSize*1.009;
 //            g2.drawString(text, x, y);
-            g2.drawImage(playB, x,y, 160, 160, null);
+            g2.drawImage(optionsB, x,436, 229, 87, null);
             if(commandNum == 1){
                 g2.drawString(">", x-gp.tileSize, 500);
             }
@@ -165,7 +166,7 @@ public class UI {
             text = "Quit";
 //            x = getXforCenter(text);
             x = getXforCenter(text) - 43;
-            y += gp.tileSize*1.5;
+            y += gp.tileSize*1.71;
 //            g2.drawString(text, x, y);
             g2.drawImage(quitB, x,y, 160, 160, null);
             if(commandNum == 2){
