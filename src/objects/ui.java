@@ -11,6 +11,7 @@ public class ui extends Entity {
         image = setup("/ui/play_button");
         image2 = setup("/ui/quit_button");
         image3 = setup("/ui/quit_button2");
+        image4 = setup("/ui/text_box");
 
 
     }

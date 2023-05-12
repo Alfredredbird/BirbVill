@@ -19,7 +19,7 @@ public class UI {
     public String currentDialog = "";
     public int commandNum = 0;
     BufferedImage heart_0,heart_1, heart_2;
-    BufferedImage playB, quitB, optionsB;
+    BufferedImage playB, quitB, optionsB, tb;
     public int titleScreenState = 0; //0 = screen 1 etc
     public UI(GamePanel gp){
         this.gp = gp;
@@ -39,6 +39,7 @@ public class UI {
         playB = UIG.image;
         quitB = UIG.image2;
         optionsB = UIG.image3;
+        tb = UIG.image4;
 
     }
 
@@ -124,6 +125,9 @@ public class UI {
     }
     public void drawTitleScreen(){
 
+        //npc text box code
+        // g2.drawImage(tb, 525, 185,300, 200,null);
+
         if(titleScreenState == 0){
 
 
@@ -186,7 +190,7 @@ public class UI {
             int y = gp.tileSize*3;
             g2.drawString(text,x ,y);
 
-            text = "Birb";
+            text = "Play";
              x = getXforCenter(text);
              y += gp.tileSize*3;
             g2.drawString(text,x ,y);
@@ -195,7 +199,7 @@ public class UI {
                 g2.drawString(">", x- gp.tileSize, y);
             }
 
-            text = "Big Birb";
+            text = "Save";
             x = getXforCenter(text);
             y += gp.tileSize;
             g2.drawString(text,x ,y);
@@ -203,7 +207,7 @@ public class UI {
                 g2.drawString(">", x- gp.tileSize, y);
             }
 
-            text = "Lil Birb";
+            text = "Multiplayer";
             x = getXforCenter(text);
             y += gp.tileSize;
             g2.drawString(text,x ,y);
@@ -222,7 +226,7 @@ public class UI {
 
             g2.setColor(Color.white);
             g2.setFont(g2.getFont().deriveFont(32F));
-            String  text = "Press Up Arrow To Go Back";
+            String  text = "Press Down Arrow To Go Back";
             int  x = getXforCenter(text);
             int y = gp.tileSize*4;
             g2.drawString(text,x ,y);
@@ -277,6 +281,8 @@ public class UI {
         g2.setColor(c);
         g2.fillRoundRect(x,y,width,height, 35,35);
         c = new Color(255,255,255);
+
+
         g2.setColor(c);
         g2.setStroke(new BasicStroke(5));
         g2.drawRoundRect(x + 5, y +5, width-10, height-10, 25,25);
