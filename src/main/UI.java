@@ -191,6 +191,16 @@ public class UI {
             }
 
 
+            text = "Twitter";
+            x = getXforCenter(text) - 350;
+            y += gp.tileSize*1.2;
+//            g2.drawString(text, x, 641);
+//            g2.drawImage(ytB, x,641, null);
+            if(commandNum == 4){
+                g2.drawString(">", 200, 690);
+            }
+
+
 
         }
         else if(titleScreenState == 1){

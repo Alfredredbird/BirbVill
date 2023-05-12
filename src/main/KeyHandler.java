@@ -39,12 +39,12 @@ public class KeyHandler implements KeyListener {
                 if (code == KeyEvent.VK_UP){
                     gp.ui.commandNum--;
                     if(gp.ui.commandNum <0 ){
-                        gp.ui.commandNum = 3;
+                        gp.ui.commandNum = 4;
                     }
                 }
                 if (code == KeyEvent.VK_DOWN){
                     gp.ui.commandNum++;
-                    if(gp.ui.commandNum >3 ){
+                    if(gp.ui.commandNum >4 ){
                         gp.ui.commandNum = 0;
                     }
                 }
@@ -67,13 +67,21 @@ public class KeyHandler implements KeyListener {
                     if (gp.ui.commandNum == 3) {
                        //opens link
                         try {
-                            URL sus = new URL("https://www.youtube.com/channel/UCnQ8RexasTgyh23H4xReakw");
-                            openWebdpage(sus);
+                            URL utube = new URL("https://www.youtube.com/channel/UCnQ8RexasTgyh23H4xReakw");
+                            openWebdpage(utube);
                         } catch (MalformedURLException ex) {
                             throw new RuntimeException(ex);
                         }
 
-
+                    }
+                    if (gp.ui.commandNum == 4) {
+                        //opens link
+                        try {
+                            URL twitter = new URL("https://twitter.com/@Alfredredbird1");
+                            openWebdpage(twitter);
+                        } catch (MalformedURLException ex) {
+                            throw new RuntimeException(ex);
+                        }
 
                     }
                 }
