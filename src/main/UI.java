@@ -19,7 +19,7 @@ public class UI {
     public String currentDialog = "";
     public int commandNum = 0;
     BufferedImage heart_0,heart_1, heart_2;
-    BufferedImage playB;
+    BufferedImage playB, quitB;
     public int titleScreenState = 0; //0 = screen 1 etc
     public UI(GamePanel gp){
         this.gp = gp;
@@ -37,6 +37,7 @@ public class UI {
         //ui items
         Entity UIG = new ui(gp);
         playB = UIG.image;
+        quitB = UIG.image2;
 
     }
 
@@ -166,7 +167,7 @@ public class UI {
             x = getXforCenter(text) - 43;
             y += gp.tileSize*1.5;
 //            g2.drawString(text, x, y);
-            g2.drawImage(playB, x,y, 160, 160, null);
+            g2.drawImage(quitB, x,y, 160, 160, null);
             if(commandNum == 2){
                 g2.drawString(">", x-gp.tileSize, 600);
             }

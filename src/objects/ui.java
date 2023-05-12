@@ -9,6 +9,7 @@ public class ui extends Entity {
         super(gp);
         name = "Ui";
         image = setup("/ui/play_button");
+        image2 = setup("/ui/quit_button");
 
 
 
