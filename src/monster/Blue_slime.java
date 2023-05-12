@@ -7,9 +7,11 @@ import java.util.Random;
 
 public class Blue_slime extends Entity {
 
+    GamePanel gp;
 
     public Blue_slime(GamePanel gp) {
         super(gp);
+        this.gp = gp;
 
         type = 2;
         name = "Blue Slime";
@@ -27,17 +29,17 @@ public class Blue_slime extends Entity {
         getImage();
     }
     public void getImage(){
-        up1 = setup("/monster/slime_1");
-        up2 = setup("/monster/slime_2");
+        up1 = setup("/monster/slime_1", gp.tileSize, gp.tileSize);
+        up2 = setup("/monster/slime_2", gp.tileSize, gp.tileSize);
 
-        down1 = setup("/monster/slime_1");
-        down2 = setup("/monster/slime_2");
+        down1 = setup("/monster/slime_1", gp.tileSize, gp.tileSize);
+        down2 = setup("/monster/slime_2", gp.tileSize, gp.tileSize);
 
-        left1 = setup("/monster/slime_1");
-        left2 = setup("/monster/slime_2");
+        left1 = setup("/monster/slime_1", gp.tileSize, gp.tileSize);
+        left2 = setup("/monster/slime_2", gp.tileSize, gp.tileSize);
 
-        right1 = setup("/monster/slime_1");
-        right2 = setup("/monster/slime_2");
+        right1 = setup("/monster/slime_1", gp.tileSize, gp.tileSize);
+        right2 = setup("/monster/slime_2", gp.tileSize, gp.tileSize);
     }
     public void setAction(){
 

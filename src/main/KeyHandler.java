@@ -225,6 +225,7 @@ public class KeyHandler implements KeyListener {
 
             }
 
+
             //debug menu
             if (code == KeyEvent.VK_F3){
                 if (DrawTimeMenu == false){

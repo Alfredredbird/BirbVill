@@ -39,6 +39,7 @@ public class Player extends Entity{
 
         setDefaultVal();
         getPlayerImage();
+        getAttackImg();
 
     }
     public void setDefaultVal(){
@@ -59,33 +60,37 @@ public class Player extends Entity{
 
 
 
-            up1 = setup("/player/walk_1");
-            up2 = setup("/player/walk_2");
-            down1 = setup("/player/down_1");
-            down2 = setup("/player/down_2");
-            right1 = setup("/player/right_1");
-            right2 = setup("/player/right_2");
-            left1 = setup("/player/left_1");
-            left2 = setup("/player/left_2");
+            up1 = setup("/player/walk_1", gp.tileSize, gp.tileSize);
+            up2 = setup("/player/walk_2", gp.tileSize, gp.tileSize);
+            down1 = setup("/player/down_1", gp.tileSize, gp.tileSize);
+            down2 = setup("/player/down_2", gp.tileSize, gp.tileSize);
+            right1 = setup("/player/right_1", gp.tileSize, gp.tileSize);
+            right2 = setup("/player/right_2", gp.tileSize, gp.tileSize);
+            left1 = setup("/player/left_1", gp.tileSize, gp.tileSize);
+            left2 = setup("/player/left_2", gp.tileSize, gp.tileSize);
 
 
 
     }
     public void getAttackImg(){
-        attack_up1 = setup("player/attack/attack_0");
-        attack_up2 = setup("player/attack/attack_1");
-        attack_down1 = setup("player/attack/attack_2");
-        attack_down2 = setup("player/attack/attack_3");
-        attack_right1 = setup("player/attack/attack_4");
-        attack_right2 = setup("player/attack/attack_5");
-        attack_left1 = setup("player/attack/attack_6");
-        attack_left2 = setup("player/attack/attack_7");
+        attack_up1 = setup("/player/attack_0", gp.tileSize, gp.tileSize*2);
+        attack_up2 = setup("/player/attack_1", gp.tileSize, gp.tileSize*2);
+        attack_down1 = setup("/player/attack_2", gp.tileSize, gp.tileSize*2);
+        attack_down2 = setup("/player/attack_3", gp.tileSize, gp.tileSize*2);
+        attack_right1 = setup("/player/attack_4", gp.tileSize*2, gp.tileSize*2);
+        attack_right2 = setup("/player/attack_5", gp.tileSize*2, gp.tileSize);
+        attack_left1 = setup("/player/attack_6", gp.tileSize*2, gp.tileSize*2);
+        attack_left2 = setup("/player/attack_7", gp.tileSize*2, gp.tileSize*2);
 
     }
 
     public void update(){
+        if(attack == true){
 
-        if(keyH.upPressed == true || keyH.downPressed == true || keyH.leftPressed == true || keyH.rightPressed == true || keyH.enterPressed == true) {
+            attack();
+        }
+
+      else if(keyH.upPressed == true || keyH.downPressed == true || keyH.leftPressed == true || keyH.rightPressed == true || keyH.enterPressed == true) {
 
 
             if (keyH.upPressed == true) {
@@ -162,14 +167,39 @@ public class Player extends Entity{
 
     }
     public void interactNpc(int i){
-        if (i != 999){
-            if(gp.keyH.enterPressed == true){
-                gp.gameState = gp.dialogState;
-                gp.npc[i].speak();
-            }
 
+        if(gp.keyH.enterPressed == true) {
+
+            if (i != 999){
+
+                    gp.gameState = gp.dialogState;
+                    gp.npc[i].speak();
+            } else  {
+                attack = true;
+            }
         }
     }
+    public void attack(){
+
+        spriteCounter++;
+
+        if(spriteCounter <= 5){
+            spriteNum = 1;
+        }
+        if(spriteCounter > 5 && spriteCounter <= 25){
+            spriteNum = 2;
+        }
+        if (spriteCounter > 25){
+            spriteNum = 1;
+            spriteCounter = 0;
+            attack = false;
+        }
+
+    }
+
+
+
+
 
     public void pickUpObject(int i){
         if (i != 999){
@@ -215,38 +245,76 @@ public class Player extends Entity{
         BufferedImage image = null;
         switch (direction){
             case "up":
-                if (spriteNum == 1){
-                    image = up1;
+                if(attack == false) {
+                    if (spriteNum == 1) {
+                        image = up1;
+                    }
+                    if (spriteNum == 2) {
+                        image = up2;
+                    }
                 }
-                if (spriteNum == 2){
-                    image = up2;
+                if(attack == true){
+                    if (spriteNum == 1) {
+                        image = attack_up1;
+                    }
+                    if (spriteNum == 2) {
+                        image = attack_up2;
+                    }
                 }
-
                 break;
             case "down":
-                if (spriteNum == 1){
-                    image = down1;
+                if(attack == false) {
+                    if (spriteNum == 1) {
+                        image = down1;
+                    }
+                    if (spriteNum == 2) {
+                        image = down2;
+                    }
                 }
-                if (spriteNum == 2){
-                    image = down2;
+                if(attack == true) {
+                    if (spriteNum == 1) {
+                        image = attack_down1;
+                    }
+                    if (spriteNum == 2) {
+                        image = attack_down2;
+                    }
                 }
-
                 break;
             case "right":
-                if (spriteNum == 1){
-                    image = right1;
+                if(attack == false) {
+                    if (spriteNum == 1) {
+                        image = right1;
+                    }
+                    if (spriteNum == 2) {
+                        image = right2;
+                    }
                 }
-                if (spriteNum == 2){
-                    image = right2;
+                if(attack == true) {
+                    if (spriteNum == 1) {
+                        image = attack_right1;
+                    }
+                    if (spriteNum == 2) {
+                        image = attack_right2;
+                    }
                 }
 
                 break;
             case "left":
-                if (spriteNum == 1){
-                    image = left1;
+                if(attack == false) {
+                    if (spriteNum == 1) {
+                        image = left1;
+                    }
+                    if (spriteNum == 2) {
+                        image = left2;
+                    }
                 }
-                if (spriteNum == 2){
-                    image = left2;
+                if(attack == true) {
+                    if (spriteNum == 1) {
+                        image = attack_left1;
+                    }
+                    if (spriteNum == 2) {
+                        image = attack_left2;
+                    }
                 }
                 break;
         }

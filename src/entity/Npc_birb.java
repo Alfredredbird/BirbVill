@@ -20,14 +20,14 @@ public class Npc_birb extends Entity{
     public void getImage(){
 
 
-        up1 = setup("/npc/birb_npc_4");
-        up2 = setup("/npc/birb_npc_5");
-        down1 = setup("/npc/birb_npc_4");
-        down2 = setup("/npc/birb_npc_5");
-        right1 = setup("/npc/birb_npc_2");
-        right2 = setup("/npc/birb_npc_3");
-        left1 = setup("/npc/birb_npc_0");
-        left2 = setup("/npc/birb_npc_1");
+        up1 = setup("/npc/birb_npc_4", gp.tileSize, gp.tileSize);
+        up2 = setup("/npc/birb_npc_5", gp.tileSize, gp.tileSize);
+        down1 = setup("/npc/birb_npc_4", gp.tileSize, gp.tileSize);
+        down2 = setup("/npc/birb_npc_5", gp.tileSize, gp.tileSize);
+        right1 = setup("/npc/birb_npc_2", gp.tileSize, gp.tileSize);
+        right2 = setup("/npc/birb_npc_3", gp.tileSize, gp.tileSize);
+        left1 = setup("/npc/birb_npc_0", gp.tileSize, gp.tileSize);
+        left2 = setup("/npc/birb_npc_1", gp.tileSize, gp.tileSize);
 
 
     }

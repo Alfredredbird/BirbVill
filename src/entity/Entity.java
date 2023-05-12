@@ -26,6 +26,8 @@ public class Entity {
     public int solidAreaDefaultX, solidAreaDefaultY;
     public boolean invc = false;
     public int invcCounter = 0;
+
+    boolean attack = false;
     public boolean collisionOn = false;
     public int actionLockCounter = 0;
     String dialouges[] = new String[20];
@@ -176,13 +178,13 @@ public class Entity {
         }
 
     }
-    public BufferedImage setup(String imagePath){
+    public BufferedImage setup(String imagePath, int width, int height){
         UtilityTool uTool = new UtilityTool();
         BufferedImage image = null;
 
         try {
             image = ImageIO.read(getClass().getResourceAsStream(  imagePath+ ".png"));
-            image = uTool.scaleImage(image, gp.tileSize, gp.tileSize);
+            image = uTool.scaleImage(image, width, height);
 
         } catch (IOException e){
             e.printStackTrace();

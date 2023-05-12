@@ -12,7 +12,7 @@ public class sign extends Entity {
     public sign(GamePanel gp){
         super(gp);
         name = "Sign";
-        down1 = setup("/objects/sign");
+        down1 = setup("/objects/sign", gp.tileSize, gp.tileSize);
 
 
     }
