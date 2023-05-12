@@ -20,7 +20,7 @@ public class UI {
     public String currentDialog = "";
     public int commandNum = 0;
     BufferedImage heart_0,heart_1, heart_2;
-    BufferedImage playB, quitB, optionsB, tb;
+    BufferedImage playB, quitB, optionsB, tb,ytB;
     public int titleScreenState = 0; //0 = screen 1 etc
     public UI(GamePanel gp){
         this.gp = gp;
@@ -41,6 +41,7 @@ public class UI {
         quitB = UIG.image2;
         optionsB = UIG.image3;
         tb = UIG.image4;
+        ytB = UIG.image5;
 
     }
 
@@ -181,12 +182,12 @@ public class UI {
             }
 
             text = "Youtube";
-            x = getXforCenter(text) - 35;
-            y += gp.tileSize*1.009;
+            x = getXforCenter(text) - 350;
+            y += gp.tileSize*1.2;
 //            g2.drawString(text, x, y);
-            g2.drawString(text, x,636);
+            g2.drawImage(ytB, x,641, null);
             if(commandNum == 3){
-                g2.drawString(">", 150, 700);
+                g2.drawString(">", 25, 690);
             }
 
 

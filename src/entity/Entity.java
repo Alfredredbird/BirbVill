@@ -28,7 +28,7 @@ public class Entity {
     public int actionLockCounter = 0;
     String dialouges[] = new String[20];
     int diagloeIndex = 0;
-    public BufferedImage image, image2, image3, image4;
+    public BufferedImage image, image2, image3, image4, image5;
     public String name;
     public boolean collision = false;
 
