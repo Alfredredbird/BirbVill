@@ -15,6 +15,8 @@ public class Entity {
     public int speed;
 
     public BufferedImage up1, up2, down1, down2, left1, left2, right1, right2;
+    public BufferedImage attack_up1, attack_up2, attack_down1, attack_down2,
+            attack_left1, attack_left2, attack_right1, attack_right2;
     public String direction = "down";
 
     public int spriteCounter = 0;

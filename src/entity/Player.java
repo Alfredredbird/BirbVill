@@ -71,10 +71,21 @@ public class Player extends Entity{
 
 
     }
+    public void getAttackImg(){
+        attack_up1 = setup("player/attack/attack_0");
+        attack_up2 = setup("player/attack/attack_1");
+        attack_down1 = setup("player/attack/attack_2");
+        attack_down2 = setup("player/attack/attack_3");
+        attack_right1 = setup("player/attack/attack_4");
+        attack_right2 = setup("player/attack/attack_5");
+        attack_left1 = setup("player/attack/attack_6");
+        attack_left2 = setup("player/attack/attack_7");
+
+    }
 
     public void update(){
 
-        if(keyH.upPressed == true || keyH.downPressed == true || keyH.leftPressed == true || keyH.rightPressed == true) {
+        if(keyH.upPressed == true || keyH.downPressed == true || keyH.leftPressed == true || keyH.rightPressed == true || keyH.enterPressed == true) {
 
 
             if (keyH.upPressed == true) {
@@ -107,9 +118,9 @@ public class Player extends Entity{
             //checks for events
             gp.eHandler.checkEvent();
 
-            gp.keyH.enterPressed = false;
+
             //if its false player can move
-            if(collisionOn == false){
+            if(collisionOn == false && keyH.enterPressed == false){
                 switch (direction){
                     case "up":
                         worldY -= speed;
@@ -127,6 +138,7 @@ public class Player extends Entity{
 
                 }
             }
+            gp.keyH.enterPressed = false;
             spriteCounter++;
             if (spriteCounter > 12) {
                 if (spriteNum == 1) {
