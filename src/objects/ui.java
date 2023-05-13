@@ -15,6 +15,7 @@ public class ui extends Entity {
         image5 = setup("/ui/youtube_button", gp.tileSize, gp.tileSize);
         image6 = setup("/ui/twitter_button", gp.tileSize, gp.tileSize);
         image7 = setup("/ui/credits_button", gp.tileSize, gp.tileSize);
+        image8 = setup("/ui/arrow", gp.tileSize, gp.tileSize);
 
 
     }

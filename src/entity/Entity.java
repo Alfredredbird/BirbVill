@@ -34,9 +34,11 @@ public class Entity {
      public boolean dying = false;
     public boolean collisionOn = false;
     public int actionLockCounter = 0;
+
+    public int hpbarCounter = 0;
     String dialouges[] = new String[20];
     int diagloeIndex = 0;
-    public BufferedImage image, image2, image3, image4, image5,image6, image7;
+    public BufferedImage image, image2, image3, image4, image5,image6, image7,image8;
     public String name;
     public boolean collision = false;
 
@@ -44,6 +46,24 @@ public class Entity {
     public int maxlife;
     public int life;
     public int type; //0 = player, etc
+    public boolean hpBarOn = false;
+
+    public int level;
+    public int strength;
+    public int attackval;
+    public int defence;
+    public int xp;
+    public int nextLevelxp;
+    public int gold;
+    public Entity currentWeapon;
+    public Entity currentItemInOffhand;
+
+    //item atributes
+    public int attackValue;
+    public int defenceVal;
+    public int dexterity;
+
+
 
 
 
@@ -51,6 +71,9 @@ public class Entity {
         this.gp = gp;
     }
     public void setAction(){
+
+    }
+    public void damageReact(){
 
     }
     public void speak(){
@@ -184,15 +207,41 @@ public class Entity {
                     }
                     break;
             }
+
+            //dras the hp bar
+            if(type == 2 && hpBarOn == true) {
+
+                double scale = (double)gp.tileSize/maxlife;
+                double hpBarVal = scale*life;
+
+
+                g2.setColor(new Color(35, 35, 35));
+                g2.fillRect(screenX-1, screenY - 16, gp.tileSize+3, 12);
+                g2.setColor(new Color(255, 0, 30));
+                g2.fillRect(screenX, screenY - 15, (int)hpBarVal , 10);
+
+                hpbarCounter++;
+
+                if(hpbarCounter > 400){
+                    hpbarCounter = 0;
+                    hpBarOn = false;
+
+                }
+            }
+
             if(invc == true){
-                g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.4f));
+                hpBarOn = true;
+                hpbarCounter = 0;
+                changeAlpha(g2, 0.5F );
+
             }
             if (dying == true){
                 dyingAnimation(g2);
             }
 
             g2.drawImage(image, screenX ,screenY, gp.tileSize, gp.tileSize,  null);
-            g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1f));
+
+            changeAlpha(g2, 1F );
         }
 
     }

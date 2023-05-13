@@ -66,6 +66,8 @@ public class GamePanel extends JPanel implements Runnable{
     public final int pauseState = 2;
     public final int dialogState = 3;
     public final int titleState = 0;
+    public final int characterState = 4;
+
      public Color c = new Color(194, 194, 214);
 
 

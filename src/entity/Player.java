@@ -2,6 +2,8 @@ package entity;
 
 import main.GamePanel;
 import main.KeyHandler;
+import objects.sheild;
+import objects.weapon;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -16,6 +18,7 @@ public class Player extends Entity{
 
     public final int screenX;
     public final int screenY;
+    public boolean attackCancel = false;
 
     public int hasKey = 0;
     public Player(GamePanel gp, KeyHandler keyH){
@@ -58,6 +61,24 @@ public class Player extends Entity{
         //player stats
         maxlife = 10;
         life = maxlife;
+        level = 1;
+        strength = 1;
+        xp = 0;
+        nextLevelxp = 5;
+        gold = 0;
+        currentWeapon = new weapon(gp);
+        currentItemInOffhand = new sheild(gp);
+        attackval = getAttack();
+        defence = getDefence();
+        dexterity = 1;
+
+    }
+    public  int getAttack(){
+
+        return attackval = strength * currentWeapon.attackValue;
+    }
+    public int getDefence(){
+        return defence = dexterity * currentItemInOffhand.defence;
 
     }
     public void getPlayerImage(){
@@ -147,6 +168,13 @@ public class Player extends Entity{
 
                 }
             }
+            if(keyH.enterPressed == true && attackCancel == false){
+                attack = true;
+                spriteCounter = 0;
+
+            }
+
+            attackCancel = false;
             gp.keyH.enterPressed = false;
             spriteCounter++;
             if (spriteCounter > 12) {
@@ -175,12 +203,9 @@ public class Player extends Entity{
         if(gp.keyH.enterPressed == true) {
 
             if (i != 999){
-
+                    attackCancel = true;
                     gp.gameState = gp.dialogState;
                     gp.npc[i].speak();
-            } else  {
-
-                attack = true;
             }
         }
     }
@@ -234,8 +259,11 @@ public class Player extends Entity{
             gp.playSoundEffect(6);
             gp.monster[i].life -= 1;
             gp.monster[i].invc = true;
+            gp.monster[i].damageReact();
+
 
             if(gp.monster[i].life <= 0){
+
                 gp.monster[i].dying = true;
             }
         }

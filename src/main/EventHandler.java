@@ -51,7 +51,7 @@ public class EventHandler {
         eventRect.y = eventRow*gp.tileSize + eventRect.y;
 
         if(gp.player.solidArea.intersects(eventRect)){
-            System.out.println("HI");
+
             if(gp.player.direction.contentEquals(reqDirection) || reqDirection.contentEquals("any")){
                 hit = true;
             }
@@ -78,7 +78,7 @@ public class EventHandler {
 
         if(gp.keyH.enterPressed == true){
             gp.gameState = gameState;
-
+            gp.player.attackCancel = true;
             if(gp.player.life < 10) {
                 Random random = new Random();
 

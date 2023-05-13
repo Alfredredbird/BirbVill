@@ -30,17 +30,17 @@ public class Blue_slime extends Entity {
     }
     public void getImage(){
 
-        up1 = setup("/monster/slime_1", 16,16);
-        up2 = setup("/monster/slime_2", 16,16);
+        up1 = setup("/monster/blue_slime1", 16,16);
+        up2 = setup("/monster/blue_slime2", 16,16);
 
-        down1 = setup("/monster/slime_1", 16,16);
-        down2 = setup("/monster/slime_2", 16,16);
+        down1 = setup("/monster/blue_slime1", 16,16);
+        down2 = setup("/monster/blue_slime2", 16,16);
 
-        left1 = setup("/monster/slime_1", 16,16);
-        left2 = setup("/monster/slime_2", 16,16);
+        left1 = setup("/monster/blue_slime1", 16,16);
+        left2 = setup("/monster/blue_slime2", 16,16);
 
-        right1 = setup("/monster/slime_1", 16,16);
-        right2 = setup("/monster/slime_2",16,16);
+        right1 = setup("/monster/blue_slime1", 16,16);
+        right2 = setup("/monster/blue_slime2",16,16);
 
     }
     public void setAction(){

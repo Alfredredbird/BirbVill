@@ -30,17 +30,23 @@ public class big_blue_slime extends Entity {
         getImage();
     }
     public void getImage(){
-        up1 = setup("/monster/slime_1", gp.tileSize, gp.tileSize);
-        up2 = setup("/monster/slime_2", gp.tileSize, gp.tileSize);
+        up1 = setup("/monster/green_slime1", gp.tileSize, gp.tileSize);
+        up2 = setup("/monster/green_slime2", gp.tileSize, gp.tileSize);
 
-        down1 = setup("/monster/slime_1", gp.tileSize, gp.tileSize);
-        down2 = setup("/monster/slime_2", gp.tileSize, gp.tileSize);
+        down1 = setup("/monster/green_slime1", gp.tileSize, gp.tileSize);
+        down2 = setup("/monster/green_slime2", gp.tileSize, gp.tileSize);
 
-        left1 = setup("/monster/slime_1", gp.tileSize, gp.tileSize);
-        left2 = setup("/monster/slime_2", gp.tileSize, gp.tileSize);
+        left1 = setup("/monster/green_slime1", gp.tileSize, gp.tileSize);
+        left2 = setup("/monster/green_slime2", gp.tileSize, gp.tileSize);
 
-        right1 = setup("/monster/slime_1", gp.tileSize, gp.tileSize);
-        right2 = setup("/monster/slime_2", gp.tileSize, gp.tileSize);
+        right1 = setup("/monster/green_slime1", gp.tileSize, gp.tileSize);
+        right2 = setup("/monster/green_slime2", gp.tileSize, gp.tileSize);
+    }
+
+    public void damageReact(){
+        actionLockCounter = 0;
+        direction = gp.player.direction;
+
     }
     public void setAction(){
 
