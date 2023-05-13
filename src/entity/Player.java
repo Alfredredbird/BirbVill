@@ -36,6 +36,10 @@ public class Player extends Entity{
         solidArea.height = 26;
         solidArea.width = 32;
 
+        attackArea.width = 36;
+        attackArea.height = 36;
+
+
 
         setDefaultVal();
         getPlayerImage();
@@ -175,6 +179,7 @@ public class Player extends Entity{
                     gp.gameState = gp.dialogState;
                     gp.npc[i].speak();
             } else  {
+
                 attack = true;
             }
         }
@@ -188,6 +193,32 @@ public class Player extends Entity{
         }
         if(spriteCounter > 5 && spriteCounter <= 25){
             spriteNum = 2;
+            //gets current data
+            int currentWorldX = worldX;
+            int currentWorldY = worldY;
+            int solidAreawidth = solidArea.width;
+            int solidAreaHeight = solidArea.height;
+
+            //adjusts the data
+            switch (direction){
+                case "up": worldY-= attackArea.height; break;
+                case "down": worldY+= attackArea.height; break;
+                case "left": worldX -= attackArea.width; break;
+                case "right": worldX += attackArea.width; break;
+            }
+
+            //attack area copies solidarea
+            solidArea.width = attackArea.width;
+            solidArea.height = attackArea.height;
+
+            int monsterIndex = gp.cChecker.checkEntity(this, gp.monster);
+            damageMob(monsterIndex);
+
+            worldX = currentWorldX;
+            worldY = currentWorldY;
+            solidArea.width = solidAreawidth;
+            solidArea.height = solidAreaHeight;
+
         }
         if (spriteCounter > 25){
             spriteNum = 1;
@@ -197,7 +228,19 @@ public class Player extends Entity{
 
     }
 
+    public void damageMob(int i){
+        if(i != 999){
+        if(gp.monster[i].invc == false){
+            gp.playSoundEffect(6);
+            gp.monster[i].life -= 1;
+            gp.monster[i].invc = true;
 
+            if(gp.monster[i].life <= 0){
+                gp.monster[i].dying = true;
+            }
+        }
+        }
+    }
 
 
 
@@ -322,6 +365,7 @@ public class Player extends Entity{
         if(invc == true){
             g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.3f));
         }
+
         g2.drawImage(image,screenX ,screenY, 96, 96, null);
 
         //resets alpha
@@ -334,6 +378,7 @@ public class Player extends Entity{
 
 
     }
+
 
 
 }

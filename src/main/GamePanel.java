@@ -66,7 +66,7 @@ public class GamePanel extends JPanel implements Runnable{
     public final int pauseState = 2;
     public final int dialogState = 3;
     public final int titleState = 0;
-
+     public Color c = new Color(194, 194, 214);
 
 
 
@@ -76,7 +76,7 @@ public class GamePanel extends JPanel implements Runnable{
 
     public GamePanel() {
         this.setPreferredSize(new Dimension(screenWdith, screenHeight));
-        Color c = new Color(194, 194, 214);
+
         this.setBackground(c);
         this.setDoubleBuffered(true);
         this.addKeyListener(keyH);
@@ -157,7 +157,13 @@ public class GamePanel extends JPanel implements Runnable{
             }
             for (int i = 0; i < monster.length; i++) {
                 if(monster[i] != null) {
-                    monster[i].update();
+                    if(monster[i].alive == true && monster[i].dying == false){
+                        monster[i].update();
+                    }
+                    if(monster[i].alive == false){
+                        monster[i] = null;
+                    }
+
                 }
             }
 

@@ -1,22 +1,23 @@
+
 package monster;
 
-import entity.Entity;
-import main.GamePanel;
+        import entity.Entity;
+        import main.GamePanel;
 
-import java.util.Random;
+        import java.util.Random;
 
-public class Blue_slime extends Entity {
+public class big_blue_slime extends Entity {
 
     GamePanel gp;
 
-    public Blue_slime(GamePanel gp) {
+    public big_blue_slime(GamePanel gp) {
         super(gp);
         this.gp = gp;
 
         type = 2;
         name = "Blue Slime";
         speed = 1;
-        maxlife = 4;
+        maxlife = 10;
         life = maxlife;
 
         solidArea.x = 4;
@@ -29,19 +30,17 @@ public class Blue_slime extends Entity {
         getImage();
     }
     public void getImage(){
+        up1 = setup("/monster/slime_1", gp.tileSize, gp.tileSize);
+        up2 = setup("/monster/slime_2", gp.tileSize, gp.tileSize);
 
-        up1 = setup("/monster/slime_1", 16,16);
-        up2 = setup("/monster/slime_2", 16,16);
+        down1 = setup("/monster/slime_1", gp.tileSize, gp.tileSize);
+        down2 = setup("/monster/slime_2", gp.tileSize, gp.tileSize);
 
-        down1 = setup("/monster/slime_1", 16,16);
-        down2 = setup("/monster/slime_2", 16,16);
+        left1 = setup("/monster/slime_1", gp.tileSize, gp.tileSize);
+        left2 = setup("/monster/slime_2", gp.tileSize, gp.tileSize);
 
-        left1 = setup("/monster/slime_1", 16,16);
-        left2 = setup("/monster/slime_2", 16,16);
-
-        right1 = setup("/monster/slime_1", 16,16);
-        right2 = setup("/monster/slime_2",16,16);
-
+        right1 = setup("/monster/slime_1", gp.tileSize, gp.tileSize);
+        right2 = setup("/monster/slime_2", gp.tileSize, gp.tileSize);
     }
     public void setAction(){
 

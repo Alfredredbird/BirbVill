@@ -4,6 +4,7 @@ import entity.Entity;
 import entity.Npc_birb;
 import entity.tut_birb;
 import monster.Blue_slime;
+import monster.big_blue_slime;
 import objects.Object_door;
 import objects.Object_key;
 import objects.sign;
@@ -52,7 +53,7 @@ public class AssetSetter {
     }
 
     public void setMonster(){
-        gp.monster[0] = new Blue_slime(gp);
+        gp.monster[0] = new big_blue_slime(gp);
         gp.monster[0].worldX = gp.tileSize*21;
         gp.monster[0].worldY = gp.tileSize*20;
 

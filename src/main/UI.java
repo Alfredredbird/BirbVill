@@ -230,9 +230,12 @@ public class UI {
             g2.drawImage(creditsB, x,641, 200,85, null);
             if(commandNum == 5){
                 g2.drawImage(boarder3, x,641, 200,85, null);
+
+
             }
 
-
+            g2.drawImage(cloud1, x,175,  null);
+            g2.drawImage(cloud1, x-600,150,  null);
 
         }
         else if(titleScreenState == 1){
@@ -303,11 +306,13 @@ public class UI {
             if(commandNum == 0){
 
                 g2.drawString(">", x- gp.tileSize, y);
+
             }
 
 
         }
         else if(titleScreenState == 3){
+
 
             g2.setColor(Color.white);
             g2.setFont(g2.getFont().deriveFont(32F));
