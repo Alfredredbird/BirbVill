@@ -34,6 +34,7 @@ public class UI {
     BufferedImage cloud1;
 
     BufferedImage arrow1, arrow2;
+    BufferedImage ui1, ui2,ui3,ui4;
 
     BufferedImage boarder1, boarder2, boarder3, boarder4,boarder5;
 
@@ -75,6 +76,10 @@ public class UI {
         Entity arrow = new arrows(gp);
         arrow1 = arrow.image2;
         arrow2 = arrow.image;
+
+        Entity uis = new UIS(gp);
+        ui1 = uis.image;
+        ui2 = uis.image2;
     }
 
     public void showMessage(String text){
@@ -141,7 +146,8 @@ public class UI {
         int frameY = gp.tileSize;
         int frameWidth = gp.tileSize*6;
         int frameHeight = gp.tileSize*5;
-        drawSubWindow(frameX,frameY,frameWidth,frameHeight);
+//        drawSubWindow(frameX,frameY,frameWidth,frameHeight);
+        g2.drawImage(ui2, frameX-100,frameY-130,frameWidth+200,frameHeight+ 260, null);
 
         //slots
 
@@ -178,7 +184,8 @@ public class UI {
         int descriptionFrameY = frameY + frameHeight + 130;
         int descriptionFrameWidth = frameWidth;
         int descriptionFrameHeight = gp.tileSize*3;
-        drawSubWindow(descriptionFrameX,descriptionFrameY,descriptionFrameWidth,descriptionFrameHeight);
+//        drawSubWindow(descriptionFrameX,descriptionFrameY,descriptionFrameWidth,descriptionFrameHeight);
+        g2.drawImage(ui2, descriptionFrameX-125,descriptionFrameY-80,descriptionFrameWidth+200,descriptionFrameHeight+220, null);
         //draws description
         int textX = descriptionFrameX + 20;
         int textY = descriptionFrameY + gp.tileSize;
@@ -232,7 +239,8 @@ public class UI {
         final int frameY = gp.tileSize;
         final int frameWdith = gp.tileSize*5;
         final int frameHeight = gp.tileSize*10;
-        drawSubWindow(frameX,frameY,frameWdith,frameHeight);
+//        drawSubWindow(frameX,frameY,frameWdith,frameHeight);
+        g2.drawImage(ui1,frameX-220,frameY-40,760,frameHeight, null);
 
         g2.setColor(Color.white);
         g2.setFont(g2.getFont().deriveFont(32F));
