@@ -19,6 +19,9 @@ public class big_blue_slime extends Entity {
         speed = 1;
         maxlife = 10;
         life = maxlife;
+        attackValue = 5;
+        defence = 0;
+        xp = 30;
 
         solidArea.x = 4;
         solidArea.y = 18;

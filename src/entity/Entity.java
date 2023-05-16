@@ -112,7 +112,11 @@ public class Entity {
     if(this.type == 2 && contactPlayer == true){
         if(gp.player.invc == false){
             //gives dmg
-            gp.player.life -= 1;
+            int damage = attackValue - gp.player.defence ;
+            if(damage < 0){
+                damage = 0;
+            }
+            gp.player.life -= damage;
             gp.player.invc = true;
 
         }
@@ -245,23 +249,7 @@ public class Entity {
         }
 
     }
-    public BufferedImage setup(String imagePath, int width, int height){
-        UtilityTool uTool = new UtilityTool();
-        BufferedImage image = null;
 
-        try {
-            image = ImageIO.read(getClass().getResourceAsStream(  imagePath+ ".png"));
-            image = uTool.scaleImage(image, width, height);
-
-        } catch (IOException e){
-            e.printStackTrace();
-        }
-        return image;
-
-
-
-
-    }
 
 
 
@@ -298,6 +286,23 @@ public class Entity {
     }
     public void changeAlpha(Graphics2D g2, float alphaValue){
         g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, alphaValue));
+    }
+    public BufferedImage setup(String imagePath, int width, int height){
+        UtilityTool uTool = new UtilityTool();
+        BufferedImage image = null;
+
+        try {
+            image = ImageIO.read(getClass().getResourceAsStream(  imagePath+ ".png"));
+            image = uTool.scaleImage(image, width, height );
+
+        } catch (IOException e){
+            e.printStackTrace();
+        }
+        return image;
+
+
+
+
     }
 
 }

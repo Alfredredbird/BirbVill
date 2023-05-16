@@ -70,17 +70,18 @@ public class Player extends Entity{
         currentItemInOffhand = new sheild(gp);
         attackval = getAttack();
         defence = getDefence();
-        dexterity = 1;
+        dexterity = 2;
 
     }
-    public  int getAttack(){
+    public int getDefence(){
+
+        return defence = dexterity * currentItemInOffhand.defenceVal ;
+    }
+    public int getAttack(){
 
         return attackval = strength * currentWeapon.attackValue;
     }
-    public int getDefence(){
-        return defence = dexterity * currentItemInOffhand.defence;
 
-    }
     public void getPlayerImage(){
 
 
@@ -257,18 +258,44 @@ public class Player extends Entity{
         if(i != 999){
         if(gp.monster[i].invc == false){
             gp.playSoundEffect(6);
-            gp.monster[i].life -= 1;
-            gp.monster[i].invc = true;
+
+            int damage = attackval - gp.monster[i].defence;
+            if(damage < 0){
+                damage = 0;
+            }
+            gp.monster[i].life -= damage;
+            gp.ui.showMessage(damage + " Damage");
+            gp.monster[i].invc= true;
             gp.monster[i].damageReact();
+
 
 
             if(gp.monster[i].life <= 0){
 
                 gp.monster[i].dying = true;
+                gp.ui.showMessage("Killed " + gp.monster[i].name);
+                gp.ui.showMessage("XP + " + gp.monster[i].xp);
+                xp += gp.monster[i].xp;
+                checkLevel();
             }
         }
         }
     }
+   public void checkLevel(){
+
+        if(xp >= nextLevelxp){
+
+            level++;
+            nextLevelxp = nextLevelxp*2;
+            maxlife += 2;
+            strength++;
+            dexterity++;
+            attackValue = getAttack();
+            defence = getDefence();
+            gp.gameState = gp.dialogState;
+            gp.ui.currentDialog = "You Leveled Up";
+        }
+   }
 
 
 
@@ -303,8 +330,13 @@ public class Player extends Entity{
 
         if(i != 999){
 
+
             if(invc == false){
-                life -= 1;
+                int damage = gp.monster[i].attackValue - defence ;
+                if(damage < 0){
+                    damage = 0;
+                }
+                life -= damage;
                 invc = true;
             }
 

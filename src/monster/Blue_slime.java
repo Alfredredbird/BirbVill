@@ -18,6 +18,9 @@ public class Blue_slime extends Entity {
         speed = 1;
         maxlife = 4;
         life = maxlife;
+        attackValue = 5;
+        defence = 0;
+        xp =3;
 
         solidArea.x = 4;
         solidArea.y = 18;
@@ -30,17 +33,17 @@ public class Blue_slime extends Entity {
     }
     public void getImage(){
 
-        up1 = setup("/monster/blue_slime1", 16,16);
-        up2 = setup("/monster/blue_slime2", 16,16);
+        up1 = setup("/monster/blue_slime1", 32,32);
+        up2 = setup("/monster/blue_slime2", 32,32);
 
-        down1 = setup("/monster/blue_slime1", 16,16);
-        down2 = setup("/monster/blue_slime2", 16,16);
+        down1 = setup("/monster/blue_slime1", 32,32);
+        down2 = setup("/monster/blue_slime2", 32,32);
 
-        left1 = setup("/monster/blue_slime1", 16,16);
-        left2 = setup("/monster/blue_slime2", 16,16);
+        left1 = setup("/monster/blue_slime1", 32,32);
+        left2 = setup("/monster/blue_slime2", 32,32);
 
-        right1 = setup("/monster/blue_slime1", 16,16);
-        right2 = setup("/monster/blue_slime2",16,16);
+        right1 = setup("/monster/blue_slime1", 32,32);
+        right2 = setup("/monster/blue_slime2",32,32);
 
     }
     public void setAction(){
