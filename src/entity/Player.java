@@ -2,11 +2,14 @@ package entity;
 
 import main.GamePanel;
 import main.KeyHandler;
+import objects.Object_door;
+import objects.Object_key;
 import objects.sheild;
 import objects.weapon;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
 
 
 public class Player extends Entity{
@@ -19,6 +22,8 @@ public class Player extends Entity{
     public final int screenX;
     public final int screenY;
     public boolean attackCancel = false;
+    public ArrayList<Entity> inventory = new ArrayList<>();
+    public final int invntroySize = 20;
 
     public int hasKey = 0;
     public Player(GamePanel gp, KeyHandler keyH){
@@ -47,6 +52,7 @@ public class Player extends Entity{
         setDefaultVal();
         getPlayerImage();
         getAttackImg();
+        setItems();
 
     }
     public void setDefaultVal(){
@@ -71,6 +77,15 @@ public class Player extends Entity{
         attackval = getAttack();
         defence = getDefence();
         dexterity = 2;
+
+    }
+
+    public void setItems(){
+
+        inventory.add(currentWeapon);
+        inventory.add(currentItemInOffhand);
+        inventory.add(new Object_key(gp));
+        inventory.add(new Object_key(gp));
 
     }
     public int getDefence(){
@@ -294,6 +309,8 @@ public class Player extends Entity{
             defence = getDefence();
             gp.gameState = gp.dialogState;
             gp.ui.currentDialog = "You Leveled Up";
+
+
         }
    }
 

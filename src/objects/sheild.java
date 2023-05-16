@@ -11,5 +11,6 @@ public class sheild extends Entity {
         name = "Sheild";
         down1 = setup("/objects/sheild", gp.tileSize, gp.tileSize);
         defenceVal = 3;
+        description = "Something To Keep \n You Safe";
     }
 }

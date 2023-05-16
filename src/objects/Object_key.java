@@ -10,6 +10,7 @@ public class Object_key extends Entity {
 
         name = "Key";
         down1 = setup("/objects/key", gp.tileSize, gp.tileSize);
+        description = "Shiny. Must Be Important.";
 
     }
 

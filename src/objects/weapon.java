@@ -11,5 +11,6 @@ public class weapon extends Entity {
         name = "Sword";
         down1 = setup("/objects/key", gp.tileSize, gp.tileSize);
         attackValue = 1;
+        description = "Very Low Quality Sword";
     }
 }

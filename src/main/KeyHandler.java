@@ -264,7 +264,7 @@ public class KeyHandler implements KeyListener {
             enterPressed = true;
 
         }
-        if (code == KeyEvent.VK_C){
+        if (code == KeyEvent.VK_E){
             gp.gameState = gp.characterState;
 
         }
@@ -285,6 +285,7 @@ public class KeyHandler implements KeyListener {
             gp.gameState =gp.playState;
 
         }
+
     }
     public void dialougeState(int code){
         if(code == KeyEvent.VK_ENTER){
@@ -292,8 +293,41 @@ public class KeyHandler implements KeyListener {
         }
     }
     public void chracterState(int code){
-        if(code == KeyEvent.VK_C){
+        if(code == KeyEvent.VK_ESCAPE){
             gp.gameState = gp.playState;
+
+        }
+        if(code == KeyEvent.VK_E){
+            gp.gameState = gp.playState;
+
+        }
+        if(code == KeyEvent.VK_UP){
+
+            if (gp.ui.slotRow != 0){
+                gp.ui.slotRow--;
+                gp.playSoundEffect(8);
+            }
+
+        }
+        if(code == KeyEvent.VK_DOWN){
+            if (gp.ui.slotRow != 3){
+                gp.ui.slotRow++;
+                gp.playSoundEffect(8);
+            }
+
+        }
+        if(code == KeyEvent.VK_LEFT){
+            if (gp.ui.slotColom != 0){
+                gp.ui.slotColom--;
+                gp.playSoundEffect(8);
+            }
+
+        }
+        if(code == KeyEvent.VK_RIGHT){
+            if (gp.ui.slotColom != 4) {
+                gp.ui.slotColom++;
+                gp.playSoundEffect(8);
+            }
         }
     }
 
