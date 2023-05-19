@@ -14,7 +14,7 @@ public class Entity {
     public int worldX, worldY;
     public int speed;
 
-    public BufferedImage up1, up2, down1, down2, left1, left2, right1, right2;
+    public BufferedImage up1, up2, down1, down2, left1, left2, right1, right2,rest_down;
     public BufferedImage attack_up1, attack_up2, attack_down1, attack_down2,
             attack_left1, attack_left2, attack_right1, attack_right2;
     public String direction = "down";
@@ -219,16 +219,69 @@ public class Entity {
                 double scale = (double)gp.tileSize/maxlife;
                 double hpBarVal = scale*life;
 
+//
+//                g2.setColor(new Color(35, 35, 35));
+//                g2.fillRect(screenX-1, screenY - 16, gp.tileSize+3, 12);
+//                g2.setColor(new Color(255, 0, 30));
+//                g2.fillRect(screenX, screenY - 15, (int)hpBarVal , 10);
+                if(maxlife == 4) {
+                    if (life == 4) {
+                        g2.drawImage(gp.ui.h1, screenX - 1, screenY - 16, 64, 7, null);
+                    }
+                    if (life == 3) {
+                        g2.drawImage(gp.ui.h2, screenX - 1, screenY - 16, 64, 14, null);
+                    }
+                    if (life == 2) {
+                        g2.drawImage(gp.ui.h3, screenX - 1, screenY - 16, 64, 14, null);
+                    }
+                    if (life == 1) {
+                        g2.drawImage(gp.ui.h4, screenX - 1, screenY - 16, 64, 14, null);
+                    }
+                }
+                if(maxlife == 10) {
+                    
+                    if (life == 10) {
+                        g2.drawImage(gp.ui.h1, screenX - 1, screenY - 16, 64, 7, null);
 
-                g2.setColor(new Color(35, 35, 35));
-                g2.fillRect(screenX-1, screenY - 16, gp.tileSize+3, 12);
-                g2.setColor(new Color(255, 0, 30));
-                g2.fillRect(screenX, screenY - 15, (int)hpBarVal , 10);
+                    }
+                    if (life == 9) {
+                        g2.drawImage(gp.ui.h1, screenX - 1, screenY - 16, 64, 14, null);
+
+                    }
+                    if (life == 8) {
+                        g2.drawImage(gp.ui.h2, screenX - 1, screenY - 16, 64, 14, null);
+
+                    }
+                    if (life == 7) {
+                        g2.drawImage(gp.ui.h2, screenX - 1, screenY - 16, 64, 14, null);
+                    }
+                    if (life == 6) {
+                        g2.drawImage(gp.ui.h3, screenX - 1, screenY - 16, 64, 14, null);
+                    }
+                    if (life == 5) {
+                        g2.drawImage(gp.ui.h3, screenX - 1, screenY - 16, 64, 14, null);
+                    }
+                    if (life == 4) {
+                        g2.drawImage(gp.ui.h3, screenX - 1, screenY - 16, 64, 14, null);
+                    }
+                    if (life == 3) {
+                        g2.drawImage(gp.ui.h4, screenX - 1, screenY - 16, 64, 14, null);
+                    }
+                    if (life == 2) {
+                        g2.drawImage(gp.ui.h4, screenX - 1, screenY - 16, 64, 14, null);
+                    }
+                    if (life == 1 ) {
+                        g2.drawImage(gp.ui.h4, screenX - 1, screenY - 16, 64, 14, null);
+                    }
+
+                }
 
                 hpbarCounter++;
 
                 if(hpbarCounter > 400){
                     hpbarCounter = 0;
+
+
                     hpBarOn = false;
 
                 }

@@ -35,6 +35,7 @@ public class UI {
 
     BufferedImage arrow1, arrow2;
     BufferedImage ui1, ui2,ui3,ui4;
+   public BufferedImage h1, h2,h3,h4;
 
     BufferedImage boarder1, boarder2, boarder3, boarder4,boarder5;
 
@@ -80,6 +81,13 @@ public class UI {
         Entity uis = new UIS(gp);
         ui1 = uis.image;
         ui2 = uis.image2;
+
+        Entity HB = new health_bar(gp);
+        h1 = HB.image;
+        h2 = HB.image2;
+        h3 = HB.image3;
+        h4 = HB.image4;
+
     }
 
     public void showMessage(String text){
@@ -146,8 +154,8 @@ public class UI {
         int frameY = gp.tileSize;
         int frameWidth = gp.tileSize*6;
         int frameHeight = gp.tileSize*5;
-//        drawSubWindow(frameX,frameY,frameWidth,frameHeight);
-        g2.drawImage(ui2, frameX-100,frameY-130,frameWidth+200,frameHeight+ 260, null);
+        drawSubWindow(frameX,frameY,frameWidth,frameHeight);
+//        g2.drawImage(ui2, frameX-100,frameY-130,frameWidth+200,frameHeight+ 260, null);
 
         //slots
 
@@ -184,8 +192,8 @@ public class UI {
         int descriptionFrameY = frameY + frameHeight + 130;
         int descriptionFrameWidth = frameWidth;
         int descriptionFrameHeight = gp.tileSize*3;
-//        drawSubWindow(descriptionFrameX,descriptionFrameY,descriptionFrameWidth,descriptionFrameHeight);
-        g2.drawImage(ui2, descriptionFrameX-125,descriptionFrameY-80,descriptionFrameWidth+200,descriptionFrameHeight+220, null);
+//
+
         //draws description
         int textX = descriptionFrameX + 20;
         int textY = descriptionFrameY + gp.tileSize;
@@ -194,7 +202,8 @@ public class UI {
         int itemIndex = getItemIndex();
 
         if(itemIndex < gp.player.inventory.size()){
-
+//            g2.drawImage(ui2, descriptionFrameX-125,descriptionFrameY-80,descriptionFrameWidth+200,descriptionFrameHeight+220, null);
+            drawSubWindow(descriptionFrameX,descriptionFrameY,descriptionFrameWidth,descriptionFrameHeight);
             for(String line: gp.player.inventory.get(itemIndex).description.split("\n")){
                 g2.drawString(line, textX,textY);
                 textY += 32;
@@ -239,8 +248,8 @@ public class UI {
         final int frameY = gp.tileSize;
         final int frameWdith = gp.tileSize*5;
         final int frameHeight = gp.tileSize*10;
-//        drawSubWindow(frameX,frameY,frameWdith,frameHeight);
-        g2.drawImage(ui1,frameX-220,frameY-40,760,frameHeight, null);
+        drawSubWindow(frameX,frameY,frameWdith,frameHeight);
+      //  g2.drawImage(ui1,frameX-220,frameY-40,760,frameHeight, null);
 
         g2.setColor(Color.white);
         g2.setFont(g2.getFont().deriveFont(32F));

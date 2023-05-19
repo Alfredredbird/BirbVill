@@ -64,19 +64,21 @@ public class TileManager {
             setUp(2, "swamp_grass", false);
             setUp(1, "grass", false);
             setUp(0, "tree", true);
-            setUp(3, "house_tiles", false);
+            setUp(3, "grass2", false);
             setUp(4, "water", true);
             setUp(5, "dirt", false);
             setUp(6, "stone", true);
-            setUp(7, "dirt_path_right", false);
+            setUp(7, "grass_path_right", false);
             setUp(8, "dirt_path_left", false);
             setUp(9, "dirt_path_corner_3", false);
-            setUp(10, "old_dirt_path_left", false);
-            setUp(11, "dirt_path_turn_right2", false);
-            setUp(12, "dirt_path_turn_left2", false);
-            setUp(13, "dirt_path_down", false);
+            setUp(10, "grass_path_left", false);
+            setUp(11, "grass_up1", false);
+            setUp(12, "grass_up2", false);
+            setUp(13, "grass_path_down", false);
             setUp(14, "river5", true);
             setUp(15, "river6", true);
+            setUp(16, "grass_down1", false);
+            setUp(17, "grass_down2", false);
 
 
     }

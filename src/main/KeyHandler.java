@@ -245,16 +245,20 @@ public class KeyHandler implements KeyListener {
     public void playState(int code){
         if (code == KeyEvent.VK_W){
             upPressed = true;
+            gp.player.rest = false;
 
         }
         if (code == KeyEvent.VK_A){
             leftPressed = true;
+            gp.player.rest = false;
         }
         if (code == KeyEvent.VK_S){
             downPressed = true;
+            gp.player.rest = false;
         }
         if (code == KeyEvent.VK_D){
             rightPressed = true;
+            gp.player.rest = false;
         }
         if (code == KeyEvent.VK_ESCAPE){
             gp.gameState =gp.pauseState;
@@ -338,15 +342,19 @@ public class KeyHandler implements KeyListener {
         int code = e.getKeyCode();
         if (code == KeyEvent.VK_W){
             upPressed = false;
+            gp.player.rest = true;
         }
         if (code == KeyEvent.VK_A){
             leftPressed = false;
+            gp.player.rest = true;
         }
         if (code == KeyEvent.VK_S){
             downPressed = false;
+            gp.player.rest = true;
         }
         if (code == KeyEvent.VK_D){
             rightPressed = false;
+            gp.player.rest = true;
         }
     }
 }

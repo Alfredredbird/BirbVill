@@ -264,7 +264,7 @@ public class GamePanel extends JPanel implements Runnable{
             g2.setFont(new Font("Arial", Font.PLAIN, 26));
             g2.setColor(Color.white);
             g2.drawString("Invce: " + player.invcCounter, 10, 400);
-
+            g2.drawString("Item: "+ player.currentWeapon.name, 10,400);
             g2.drawString("Health:" + player.life, 850, 30);
            if(gameState == 3){
                g2.drawString("Talking To Npc: True" , 10, 140);

@@ -20,6 +20,7 @@ public class Player extends Entity{
 
 
     public final int screenX;
+    public boolean rest = false;
     public final int screenY;
     public boolean attackCancel = false;
     public ArrayList<Entity> inventory = new ArrayList<>();
@@ -101,14 +102,18 @@ public class Player extends Entity{
 
 
 
-            up1 = setup("/player/walk_1", gp.tileSize, gp.tileSize);
-            up2 = setup("/player/walk_2", gp.tileSize, gp.tileSize);
-            down1 = setup("/player/down_1", gp.tileSize, gp.tileSize);
-            down2 = setup("/player/down_2", gp.tileSize, gp.tileSize);
-            right1 = setup("/player/right_1", gp.tileSize, gp.tileSize);
-            right2 = setup("/player/right_2", gp.tileSize, gp.tileSize);
-            left1 = setup("/player/left_1", gp.tileSize, gp.tileSize);
-            left2 = setup("/player/left_2", gp.tileSize, gp.tileSize);
+            up1 = setup("/player/up1", gp.tileSize, gp.tileSize);
+            up2 = setup("/player/up1", gp.tileSize, gp.tileSize);
+            down1 = setup("/player/down1", gp.tileSize, gp.tileSize);
+            down2 = setup("/player/down2", gp.tileSize, gp.tileSize);
+            right1 = setup("/player/right1", gp.tileSize, gp.tileSize);
+            right2 = setup("/player/right1", gp.tileSize, gp.tileSize);
+            left1 = setup("/player/left1", gp.tileSize, gp.tileSize);
+            left2 = setup("/player/left1", gp.tileSize, gp.tileSize);
+
+
+             rest_down = setup("/player/rest_down", gp.tileSize, gp.tileSize);
+
 
 
 
@@ -317,29 +322,39 @@ public class Player extends Entity{
 
 
     public void pickUpObject(int i){
-        if (i != 999){
+        if (i != 999) {
 
-            String objectName = gp.obj[i].name;
-            switch (objectName ){
-                case "Key":
-                    gp.playSoundEffect(4);
-                    hasKey++;
-                    gp.obj[i] = null;
-                    gp.ui.showMessage("Picked Up A Key");
-                    break;
-                case "Door":
-
-                    if(hasKey > 0){
-
-                        hasKey--;
-                        System.out.println("Key--");
-                        gp.obj[i] = null;
-                        gp.ui.showMessage("You Opened A Door!");
-                    } else {
-                        gp.ui.showMessage("You Need A Key To Open This Door!");
-                    }
-                    break;
+            String text;
+            if (inventory.size() != invntroySize) {
+                inventory.add(gp.obj[i]);
+                text = "Picked Up A " + gp.obj[i].name +"!";
+            } else {
+                text = "Your Inventory Is Full!";
             }
+            gp.ui.showMessage(text);
+            gp.obj[i] = null;
+//            String objectName = gp.obj[i].name;
+//            switch (objectName ){
+//                case "Key":
+//                    gp.playSoundEffect(4);
+//                    hasKey++;
+//                    gp.obj[i] = null;
+//                    gp.ui.showMessage("Picked Up A Key");
+//                    break;
+//                case "Door":
+//
+//                    if(hasKey > 0){
+//
+//                        hasKey--;
+//                        System.out.println("Key--");
+//                        gp.obj[i] = null;
+//                        gp.ui.showMessage("You Opened A Door!");
+//                    } else {
+//                        gp.ui.showMessage("You Need A Key To Open This Door!");
+//                    }
+//                    break;
+//            }
+//
 
         }
     }
@@ -381,6 +396,7 @@ public class Player extends Entity{
                         image = attack_up2;
                     }
                 }
+
                 break;
             case "down":
                 if(attack == false) {
@@ -389,6 +405,9 @@ public class Player extends Entity{
                     }
                     if (spriteNum == 2) {
                         image = down2;
+                    }
+                    if (rest == true){
+                        image = rest_down;
                     }
                 }
                 if(attack == true) {
