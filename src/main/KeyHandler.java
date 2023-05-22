@@ -12,7 +12,7 @@ import java.security.PublicKey;
 public class KeyHandler implements KeyListener {
 
     GamePanel gp;
-    public boolean upPressed, downPressed, leftPressed, rightPressed, enterPressed;
+    public boolean upPressed, downPressed, leftPressed, rightPressed, enterPressed, sprint;
     //debug
     boolean DrawTimeMenu = false;
 
@@ -242,10 +242,29 @@ public class KeyHandler implements KeyListener {
             }
         }
     }
+
     public void playState(int code){
+
+        if(code == KeyEvent.VK_CONTROL){
+
+            if(sprint == true){
+                sprint = false;
+            }
+            if(sprint == false){
+                sprint = true;
+            }
+        }
         if (code == KeyEvent.VK_W){
-            upPressed = true;
-            gp.player.rest = false;
+            if(sprint == true){
+                upPressed = true;
+                gp.player.rest = false;
+                gp.player.speed = 6;
+            }
+            if(sprint == false) {
+                upPressed = true;
+                gp.player.rest = false;
+                gp.player.speed = 2;
+            }
 
         }
         if (code == KeyEvent.VK_A){

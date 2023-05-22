@@ -57,6 +57,8 @@ public class AssetSetter {
         gp.monster[0].worldX = gp.tileSize*21;
         gp.monster[0].worldY = gp.tileSize*20;
 
+
+
         gp.monster[1] = new Blue_slime(gp);
         gp.monster[1].worldX = gp.tileSize*10;
         gp.monster[1].worldY = gp.tileSize*10;
@@ -76,5 +78,21 @@ public class AssetSetter {
         gp.monster[5] = new Blue_slime(gp);
         gp.monster[5].worldX = gp.tileSize*10;
         gp.monster[5].worldY = gp.tileSize*9;
+
+        gp.monster[6] = new big_blue_slime(gp);
+        gp.monster[6].worldX = gp.tileSize*23;
+        gp.monster[6].worldY = gp.tileSize*20;
+
+        gp.monster[7] = new big_blue_slime(gp);
+        gp.monster[7].worldX = gp.tileSize*24;
+        gp.monster[7].worldY = gp.tileSize*20;
+
+        gp.monster[8] = new big_blue_slime(gp);
+        gp.monster[8].worldX = gp.tileSize*22;
+        gp.monster[8].worldY = gp.tileSize*20;
+
+        gp.monster[9] = new big_blue_slime(gp);
+        gp.monster[9].worldX = gp.tileSize*24;
+        gp.monster[9].worldY = gp.tileSize*20;
     }
 }

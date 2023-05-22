@@ -3,7 +3,7 @@ package main;
 import java.awt.*;
 import java.util.Random;
 
-//This code below is broken and the detection system wont work. if you can fix it go ahead :D
+
 public class EventHandler {
 
     GamePanel gp;
@@ -79,13 +79,20 @@ public class EventHandler {
         if(gp.keyH.enterPressed == true){
             gp.gameState = gameState;
             gp.player.attackCancel = true;
-            if(gp.player.life < gp.player.maxlife) {
-                Random random = new Random();
+            Random random = new Random();
 
-                int i = random.nextInt(3) + 1;
-                gp.ui.currentDialog = "You Drink The Water. \n You Gained " + i + " Hearts";
-                gp.player.life += i;
-            } else if (gp.player.life >= gp.player.maxlife){
+
+            int i = random.nextInt(1) + 1;
+            if(gp.player.life < gp.player.maxlife ) {
+
+
+                    gp.ui.currentDialog = "You Drink The Water. \n You Gained " + i + " Hearts";
+                    gp.player.life += i;
+                    if(gp.player.life > gp.player.maxlife){
+                        gp.player.life = gp.player.maxlife;
+                    }
+
+            } else if (gp.player.life >= gp.player.maxlife ){
                 gp.ui.currentDialog = "You Cant Drink The Water Right \n Now. Come Back When You \n Loose Hearts.";
                 gp.aSetter.setMonster();
             }

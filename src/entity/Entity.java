@@ -280,6 +280,7 @@ public class Entity {
 
                 if(hpbarCounter > 400){
                     hpbarCounter = 0;
+                    life++;
 
 
                     hpBarOn = false;
