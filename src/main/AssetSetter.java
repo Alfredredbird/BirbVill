@@ -1,6 +1,7 @@
 package main;
 
 import entity.Entity;
+import entity.Little_pepper;
 import entity.Npc_birb;
 import entity.tut_birb;
 import monster.Blue_slime;
@@ -50,6 +51,12 @@ public class AssetSetter {
         gp.npc[1] = new tut_birb(gp);
         gp.npc[1].worldX = gp.tileSize*13;
         gp.npc[1].worldY = gp.tileSize*19;
+
+        gp.npc[2] = new Little_pepper(gp);
+        gp.npc[2].worldX = gp.tileSize*10;
+        gp.npc[2].worldY = gp.tileSize*10;
+
+
     }
 
     public void setMonster(){
