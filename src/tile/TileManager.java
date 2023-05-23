@@ -75,8 +75,8 @@ public class TileManager {
             setUp(11, "grass_up1", false);
             setUp(12, "grass_up2", false);
             setUp(13, "grass_path_down", false);
-            setUp(14, "grass_up1", true);
-            setUp(15, "grass_up1", true);
+            setUp(14, "river5", true);
+            setUp(15, "river6", true);
             setUp(16, "grass_down1", false);
             setUp(17, "grass_down2", false);
 
